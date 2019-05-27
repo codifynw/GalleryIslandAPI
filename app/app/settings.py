@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'storages',
+    'demo'
 ]
 
 MIDDLEWARE = [
@@ -107,16 +108,39 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+# DEV
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DEV_DB_NAME'),
+        'HOST': os.environ.get('DEV_DB_HOST'),
+        'PORT': 5432,
+        'USER': 'postgres',
+    }
+}
+
+# PRODUCTION
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ.get('PROD_DB_NAME'),
+#         'HOST': os.environ.get('PROD_DB_HOST'),
+#         'PORT': '5432',
+#         'USER': os.environ.get('PROD_DB_USER'),
+#         'PASSWORD': os.environ.get('PROD_DB_PASSWORD'),
+#     }
+# }
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 # STATIC_URL = '/static/'
 
+USE_S3 = os.getenv('USE_S3')
 
-
-USE_S3 = os.getenv('USE_S3') == 'TRUE'
-
-if USE_S3:
+if USE_S3 is True:
     # aws settings
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')

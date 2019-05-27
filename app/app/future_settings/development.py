@@ -1,5 +1,8 @@
 import os
 
+
+print('using wrong settings, boss')
+
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -31,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'storages',
+    'demo'
 ]
 
 MIDDLEWARE = [
@@ -104,9 +108,6 @@ USE_TZ = True
 # STATIC_URL = '/static/'
 
 if os.getenv('USE_S3'):
-    print('using s3')
-    print('bucketname')
-    print(os.getenv('AWS_STORAGE_BUCKET_NAME'))
     # aws settings
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
