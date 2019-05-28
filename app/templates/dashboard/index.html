@@ -1,0 +1,13 @@
+<h1>Welcome to Your Dashboard</h1>
+
+
+{% if user.is_authenticated %}
+    {{ user.username }}
+{% else %}
+    Not logged in.
+{% endif %}
+
+<br>
+<br>
+<br>
+<a href='/upload'>Upload an image</a>

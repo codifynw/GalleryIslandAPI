@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'storages',
     'leads',
     'demo',
+    'dashboard',
 ]
 
 # For allauth
