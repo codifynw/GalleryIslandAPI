@@ -1,7 +1,7 @@
 import os
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
-from .models import Upload
+from .models import Photo
 
 
 def image_upload(request):
@@ -9,9 +9,9 @@ def image_upload(request):
         image_file = request.FILES['image_file']
         image_type = request.POST['image_type']
         # if os.getenv('USE_S3'):
-        upload = Upload(file=image_file)
-        upload.save()
-        image_url = upload.file.url
+        newPhoto = Photo(file=image_file)
+        newPhoto.save()
+        image_url = newPhoto.file.url
         # else:
         #     fs = FileSystemStorage()
         #     filename = fs.save(image_file.name, image_file)
