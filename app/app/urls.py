@@ -11,7 +11,7 @@ urlpatterns = [
     path('leads/', include('leads.urls')),
     path('upload/', image_upload, name='upload'),
     path('admin/', admin.site.urls),
-    path('photos/', include('demo.urls'))
+    path('', include('demo.urls'))
 
     # path('', allauth.views.signup, name='signup')
 ]
