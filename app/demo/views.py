@@ -20,3 +20,13 @@ def image_upload(request):
             'image_url': image_url
         })
     return render(request, 'upload.html')
+
+def index(request):
+    return render(request, 'index.html'), {
+        'request': request
+    }
+
+def photo_detail(request,slug):
+    print('REQUEST REQUEST REQUEST')
+    print (request)
+    return render(request, 'photo_detail.html')
