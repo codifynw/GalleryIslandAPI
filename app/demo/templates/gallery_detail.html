@@ -28,5 +28,9 @@
         <h1>
             Gallery details: {{ gallery.title }}
         </h1>
+
+        {% for photo in photos %}
+        <h3>{{photo}}</h3>
+        {% endfor %}
     {% endblock %}
 </body>
