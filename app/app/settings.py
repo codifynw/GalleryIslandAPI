@@ -45,11 +45,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'rest_framework',
+    'api',
 
-    'storages',
-    'leads',
-    'demo',
     'dashboard',
+    'storages',
+    'core',
 ]
 
 # For allauth

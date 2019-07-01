@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
-from app.storage_backends import PublicMediaStorage, PrivateMediaStorage
+from app.storage_backends import PublicMediaStorage
 from slugger import AutoSlugField
 
 
@@ -36,14 +36,3 @@ class DashboardSetting(models.Model):
 
     def __str__(self):
        return self.user.username + ' settings'
-
-
-
-# class UploadPrivate(models.Model):
-#     title = models.CharField(max_length=50, default="Untitled")
-#     user = models.ForeignKey(User, on_delete=models.CASCADE, default = 1)
-#     uploaded_at = models.DateTimeField(auto_now_add=True)
-#     file = models.FileField(storage=PrivateMediaStorage(), default="")
-#
-#     def __unicode__(self):
-#        return self.title
