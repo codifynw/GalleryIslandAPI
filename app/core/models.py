@@ -19,7 +19,7 @@ class Gallery(models.Model):
 class Photo(models.Model):
     caption = models.TextField(default="")
     visible = models.BooleanField(default=True)
-    galleries = models.ManyToManyField(Gallery)
+    galleries = models.ManyToManyField(Gallery, blank=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=50, default="Untitled")
     file = models.FileField(storage=PublicMediaStorage(), default="")
