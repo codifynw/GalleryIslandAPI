@@ -23,7 +23,7 @@ def image_upload(request):
     return render(request, 'upload.html')
 
 def index(request):
-    photos = Photo.objects.all().filter(recent="true").order_by('-uploaded_at')
+    photos = Photo.objects.all()
     return render(request, 'index.html', {'photos': photos})
 
 def photo_detail(request,slug):

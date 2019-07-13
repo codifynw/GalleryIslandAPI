@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>GALELRY ISLAND INDEX</title>
+
+    <meta name="description" content="Beautiful Photography from a Beautiful Man">
+    <meta name="author" content="Gallery Island">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{% static "core/css/styles.css" %}">
+</head>
+
+<body>
+    {% block content %}
+    <div id="fullwidth-video">
+        <div class="fullwidth-video-bg">
+            <video playsinline="" muted="" onplaying="this.controls=false" autoplay loop>
+                <!-- <source src="https://galleryisland.s3-us-west-2.amazonaws.com/static/manual/mm_bg.mp4" type='video/mp4;'> -->
+                <source src="https://download.videvo.net/videvo_files/video/premium/video0002/small_watermarked/montenegro_beach_sunsetTL4k00_preview.mp4" type='video/mp4;'>
+            </video>
+        </div>
+    </div>
+    {% endblock %}
+</body>

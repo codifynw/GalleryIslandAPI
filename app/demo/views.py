@@ -23,7 +23,7 @@ def image_upload(request):
     return render(request, 'upload.html')
 
 def index(request):
-    photos = Photo.objects.all().filter(recent="true").order_by('-uploaded_at')
+    photos = Photo.objects.all()
     return render(request, 'index.html', {'photos': photos})
 
 def photo_detail(request,slug):
@@ -39,12 +39,12 @@ def photo_detail(request,slug):
 
     galleries = photo.galleries.all()
 
-    return render(request, 'photo_detail.html', {'photo': photo, 'galleries': galleries})
+    return render(request, 'core/photo_detail.html', {'photo': photo, 'galleries': galleries})
     # return render(request, 'photos/details.html', {'photo': photo,'next_photo': next_photo,'prev_photo': prev_photo, 'key': os.environ['MAPS_KEY']})
 
 def gallery_detail(request,slug):
     gallery = get_object_or_404(Gallery, slug=slug)
     photos = gallery.photo_set.all()
 
-    return render(request, 'gallery_detail.html', {'gallery': gallery, 'photos': photos})
+    return render(request, 'core/gallery_detail.html', {'gallery': gallery, 'photos': photos})
     # return render(request, 'photos/details.html', {'photo': photo,'next_photo': next_photo,'prev_photo': prev_photo, 'key': os.environ['MAPS_KEY']})
