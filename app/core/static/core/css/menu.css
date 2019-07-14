@@ -10,13 +10,9 @@
     text-transform: uppercase;
 }
 
-.main .links {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-}
-
 .menu .menu-item {
+    opacity: .4;
+    font-size: 1em;
     position: relative;
     padding-left: 6rem;
     line-height: 4.5rem;
@@ -44,6 +40,8 @@
 }
 
 .menu .menu-item:hover, .menu .menu-item.active  {
+    opacity: 1;
+    font-size: 1.2rem;
     -webkit-transform: translateX(0);
     transform: translateX(0);
     -webkit-transition: opacity 0.5s cubic-bezier(0.55, 0, 0.1, 1),-webkit-transform 0.5s cubic-bezier(0.55, 0, 0.1, 1),-webkit-filter 0.5s cubic-bezier(0.55, 0, 0.1, 1);

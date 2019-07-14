@@ -73,6 +73,17 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     transform: translateX(-50%);
 }
 
+.main .tagline {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.main .funny {
+    font-size: 14px;
+    opacity: .7;
+}
+
 /* Galleries Menu */
 .gallery-index {
     right: 0;
