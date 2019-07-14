@@ -1,15 +1,17 @@
 body {
+    overflow: hidden;
     font-family: "Montserrat";
+    background: rgb(255,255,255);
 }
 
 /* BG Video */
 #fullwidth-video{
-    min-height:100vh;
-    position: fixed;
-    left: 0px;
     top: 0px;
+    left: 0px;
     width: 100%;
     z-index: -1;
+    position: fixed;
+    min-height:100vh;
 }
 #fullwidth-video .fullwidth-video-bg {
     position: absolute;
@@ -72,16 +74,17 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
 }
 
 /* Galleries Menu */
-.gallery-section {
+.gallery-index {
     right: 0;
     width: 70%;
     height: 100%;
     overflow: scroll;
+    overflow-x: hidden;
     position: absolute;
     margin-right: -100%;
     transition: all .3s;
 }
-.gallery-section.open {
+.gallery-index.open {
     margin-right: 0;
 }
 
@@ -113,8 +116,18 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     font-size: 4.4rem;
 }
 
+.gallery-link a {
+    text-decoration: none;
+    color: rgba(187,194,229,.3);
+}
+
 .gallery-link:hover {
     color: #fff;
     cursor: pointer;
+    text-shadow: 0 0 1vh currentcolor;
+}
+
+.gallery-link:hover a {
+    color: #fff;
     text-shadow: 0 0 1vh currentcolor;
 }

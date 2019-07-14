@@ -27,7 +27,7 @@
     <div class="bg-gradient"></div>
     <div class="menu">
         <div class="menu-item" data-target='home'>Home</div>
-        <div class="menu-item link-to-gallery" data-target='gallery-section'>Galleries</div>
+        <div class="menu-item link-to-gallery" data-target='gallery-index'>Galleries</div>
         <div class="menu-item" data-target="about-section">About</div>
         <div class="menu-item" data-target='press-section'>Press</div>
     </div>
@@ -50,10 +50,14 @@
             </div>
         </div>
     </div>
-    <div class="link-target gallery-section">
+    <div class="link-target gallery-index">
         <div class="gallery-header"></div>
         <ul class="gallery-container">
-            <li class="gallery-link">New Additions</li>
+            {% for gallery in galleries %}
+                <li class="gallery-link"><a href="/gallery/{{gallery.slug}}">{{gallery.title}}</a></li>
+            {% endfor %}
+
+            <!-- <li class="gallery-link">New Additions</li>
             <li class="gallery-link">Personal Favorites</li>
             <li class="gallery-link">Iceland and Norway</li>
             <li class="gallery-link">Lava and Light</li>
@@ -61,7 +65,7 @@
             <li class="gallery-link">Rivers and Waterfalls</li>
             <li class="gallery-link">Southwest USA</li>
             <li class="gallery-link">Ocean Motion</li>
-            <li class="gallery-link">Other Areas</li>
+            <li class="gallery-link">Other Areas</li> -->
         </ul>
     </div>
     {% endblock %}

@@ -24,7 +24,7 @@ def image_upload(request):
 
 def index(request):
     photos = Photo.objects.all()
-    return render(request, 'index.html', {'photos': photos})
+    return render(request, 'core/index.html', {'photos': photos})
 
 def photo_detail(request,slug):
     photo = get_object_or_404(Photo, slug=slug)
