@@ -1,10 +1,30 @@
-#fullwidth-video{height: 50vw; min-height:50vh; position: relative;}
-#fullwidth-video .fullwidth-video-bg {
-    position: absolute; z-index: 1; top: 0px; left: 0px; bottom: 0px; right: 0px; overflow: hidden;
-    background-size: cover; background-color: transparent; background-repeat: no-repeat;
-    background-position: 0% 50%; background-image:url(http://mysite.com/assets/images/bg/myvideobg.jpg);
+body {
+    font-family: "Montserrat";
 }
-.sldtext {z-index: 2;}
+
+/* BG Video */
+#fullwidth-video{
+    min-height:100vh;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: -1;
+}
+#fullwidth-video .fullwidth-video-bg {
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    overflow: hidden;
+    background-size: cover;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    background-image:url(http://mysite.com/assets/images/bg/myvideobg.jpg);
+}
 #fullwidth-video video {
     margin: auto; position: absolute; z-index: 1; top: 50%; left: 0%;
     transform: translate(0%, -50%); visibility: visible;
@@ -15,3 +35,86 @@
 @supports (-ms-ime-align:auto){ #fullwidth-video video
 { object-fit:none; margin:none;position:inherit;z-index:1;
 top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
+
+.bg-gradient {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: radial-gradient(rgba(255,255,255,0), #000000);
+}
+
+/* MAIN */
+.container {
+    margin: 0px 20px;
+    position: relative;
+}
+
+.main {
+    z-index: 2;
+    color: white;
+}
+
+.main .name {
+    width: 120px;
+    height: 120px;
+    font-size: 48px;
+    margin-top: 60px;
+    overflow: hidden;
+    position: absolute;
+    margin-left: 100px;
+}
+
+.main .name img {
+    left: 50%;
+    height: 100%;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+/* Galleries Menu */
+.gallery-section {
+    right: 0;
+    width: 70%;
+    height: 100%;
+    overflow: scroll;
+    position: absolute;
+    margin-right: -100%;
+    transition: all .3s;
+}
+.gallery-section.open {
+    margin-right: 0;
+}
+
+.gallery-container {
+    margin-top: 20%;
+    margin-bottom: 20%;
+    position: relative;
+    height: auto;
+    width: 100%;
+    font-weight: 200;
+    list-style: none;
+    font-style: normal;
+    z-index: 2;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.gallery-link {
+    width: 100%;
+    height: 140px;
+    line-height: 66px;
+    position: relative;
+    text-overflow: nowrap;
+    color: rgba(187,194,229,.3);
+    font-size: 4.4rem;
+}
+
+.gallery-link:hover {
+    color: #fff;
+    cursor: pointer;
+    text-shadow: 0 0 1vh currentcolor;
+}
