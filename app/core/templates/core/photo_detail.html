@@ -28,9 +28,6 @@
         <h1>
             Photo details: {{ photo.caption }}
         </h1>
-        {% for gallery in galleries %}
-        <h3>{{gallery}}</h3>    
-        {% endfor %}
-        <img src=" https://galleryisland.s3.amazonaws.com/media/test/{{photo.file}}">
+        <img src='https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{photo.file}}'>
     {% endblock %}
 </body>

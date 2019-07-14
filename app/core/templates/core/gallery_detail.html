@@ -30,7 +30,8 @@
         </h1>
 
         {% for photo in photos %}
-        <h3>{{photo}}</h3>
+        <h3><a href="/photo/{{photo.slug}}">{{photo.title}}</a></h3>
+        <img src='https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{photo.file}}'>
         {% endfor %}
     {% endblock %}
 </body>
