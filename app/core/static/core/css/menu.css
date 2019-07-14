@@ -43,7 +43,7 @@
     transition: background-color 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
-.menu .menu-item:hover {
+.menu .menu-item:hover, .menu .menu-item.active  {
     -webkit-transform: translateX(0);
     transform: translateX(0);
     -webkit-transition: opacity 0.5s cubic-bezier(0.55, 0, 0.1, 1),-webkit-transform 0.5s cubic-bezier(0.55, 0, 0.1, 1),-webkit-filter 0.5s cubic-bezier(0.55, 0, 0.1, 1);
