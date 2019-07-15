@@ -1,4 +1,13 @@
 $(document).ready(function(){
+
+    window.GI = {};
+
+    $.ajax({
+        url: BASE_URL + 'api/gallery/',
+    }).done(function(response) {
+        GI.galleries = response
+    });
+
     // $('.link-to-gallery').mouseenter(
     //     function() {
     //         $('.gallery-section').addClass('open');
@@ -12,9 +21,12 @@ $(document).ready(function(){
     var returnHome = function() {
         $('.menu-item').removeClass('active');
         $('body').addClass('menu-running');
-        $('#fullwidth-video').fadeIn();
-        $('#gallery-container').hide();
+        $('#gallery-container').fadeOut();
         setTimeout(function(){
+            $('#fullwidth-video').fadeIn();
+        }, 800);
+        setTimeout(function(){
+            $('#fullwidth-video').fadeIn();
             $('body').removeClass('menu-running');
         }, 2000);
     }
@@ -47,26 +59,29 @@ $(document).ready(function(){
         }, 2000);
 
         function loadGallery(data) {
-            console.log('load gallery yo');
-            console.log(data);
-            var template = $('#gallery-template').html();
-            var rendered = Mustache.render(template, data);
-            $('#gallery-container').html(rendered);
+            setTimeout(function(){
+                $('#gallery-container').html("")
+                $('#gallery-container').html(data);
+                $('#gallery-container').fadeIn();
+            }, 300);
+            $('body').addClass( "gallery-view" );
+            // gallery-container BG
         }
 
         $.ajax({
             url: BASE_URL + 'gallery/' + self.attr('data-slug'),
         }).done(function(response) {
-            console.log(response);
-            // loadGallery(data);
-
-            setTimeout(function(){
-                $('#gallery-container').html(response);
-                $('#gallery-container').fadeIn();
-            }, 300);
-            $('body').addClass( "gallery-view" );
+            loadGallery(response);
         });
 
         // window.history.pushState({}, "Test Title", 'gallery/' + self.attr('data-slug'));
     })
 })
+
+
+        //
+        // var found = GI.galleries.find(function(element) {
+        //   return id = 2;
+        // });
+        //
+        // console.log(found);

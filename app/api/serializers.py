@@ -23,4 +23,4 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
 class GallerySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Gallery
-        fields = ('title', 'cover_photo', 'slug')
+        fields = ('id','title', 'cover_photo', 'slug')

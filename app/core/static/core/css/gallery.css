@@ -27,7 +27,11 @@
 }
 
 .gallery-bg {
-    position: absolute;
-    height: 100vh;
     width: 100%;
+    z-index: -10;
+    height: 100vh;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
