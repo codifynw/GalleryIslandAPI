@@ -5,11 +5,9 @@
     z-index: -1;
     display: none;
     overflow: auto;
-    position: fixed;
-    min-height:100vh;
+    min-height: 100vh;
     text-align: right;
     margin-right: 60px;
-    background-color: tomato;
 }
 
 #gallery-container img {
@@ -30,7 +28,7 @@
     width: 100%;
     z-index: -10;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

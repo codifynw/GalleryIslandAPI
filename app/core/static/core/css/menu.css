@@ -1,9 +1,10 @@
 .menu {
     top: 50%;
+    z-index: 100;
     color: white;
     cursor: pointer;
     font-weight: 300;
-    position: absolute;
+    position: fixed;
     letter-spacing: .25em;
     font-family: "Montserrat";
     transform: translateY(-50%);

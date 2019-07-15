@@ -21,8 +21,8 @@ $(document).ready(function(){
     var returnHome = function() {
         $('.menu-item').removeClass('active');
         $('body').addClass('menu-running');
-        $('#gallery-container').fadeOut();
         setTimeout(function(){
+            $('#gallery-container').fadeOut();
             $('#fullwidth-video').fadeIn();
         }, 800);
         setTimeout(function(){
