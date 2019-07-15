@@ -1,0 +1,12 @@
+body {
+    overflow: hidden;
+    font-family: "Montserrat";
+    color: white;
+}
+
+.gallery-title {
+    margin-top: 20%;
+    margin-right: 20%;
+    font-weight: 300;
+    letter-spacing: .25em;
+}

@@ -2,6 +2,7 @@ import os
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from .models import Photo, Gallery
+from django.conf import settings
 
 from django.shortcuts import get_object_or_404
 
@@ -25,7 +26,7 @@ def image_upload(request):
 def index(request):
     photos = Photo.objects.all()
     galleries = Gallery.objects.all()
-    return render(request, 'core/index.html', {'photos': photos, 'galleries': galleries})
+    return render(request, 'core/index.html', {'photos': photos, 'galleries': galleries, 'BASE_URL':settings.BASE_URL})
 
 def photo_detail(request,slug):
     photo = get_object_or_404(Photo, slug=slug)
@@ -45,7 +46,14 @@ def photo_detail(request,slug):
 
 def gallery_detail(request,slug):
     gallery = get_object_or_404(Gallery, slug=slug)
+    # cover_photo = get_object_or_404(Photo, title=gallery.cover_photo)
+    cover_photo = Photo.objects.get(title=gallery.cover_photo)
     photos = gallery.photo_set.all()
 
+    print("****")
+    print(cover_photo)
+    print(gallery)
+
     return render(request, 'core/gallery_detail.html', {'gallery': gallery, 'photos': photos})
+    # return render(request, 'core/gallery_detail.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo})
     # return render(request, 'photos/details.html', {'photo': photo,'next_photo': next_photo,'prev_photo': prev_photo, 'key': os.environ['MAPS_KEY']})

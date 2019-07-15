@@ -94,6 +94,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 WSGI_APPLICATION = 'app.wsgi.application'
+BASE_URL = os.environ.get('BASE_URL')
 
 
 # Password validation

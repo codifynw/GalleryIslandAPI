@@ -1,37 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>GALELRY ISLAND</title>
+{% block content %}
+    <div class="gallery-bg"
+        style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{cover_photo.file}}')"></div>
+    <h1 class='gallery-title'>
+        {{ gallery.title }}
+    </h1>
 
-    <meta name="description" content="Beautiful Photography from a Beautiful Man">
-    <meta name="author" content="Gallery Island">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
-    <!-- {% block og_tags %}
-    <meta property="og:title" content="{% block og_title %}{{SITE_NAME}}{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}{{SITE_DESCRIPTION}}{% endblock %}">
-    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
-    <meta property="og:image" content="http://{{ request.get_host }}{% block og_img %}{{ STATIC_URL }}img/logo_main.png{% endblock %}">
-    {% block extra_og_tags %}{% endblock %}
-    {% endblock og_tags %}
-    <meta property="og:url" content="{% block fb_og_url %}http://{{ request.get_host }}{{ request.get_full_path }}{% endblock %}">
-    <meta property="og:site_name" content="{{SITE_NAME}}">
-    <meta property="fb:admins" content="FACEBOOK ID HERE" /> -->
-
-    <!-- <link rel="shortcut icon" href="{{ STATIC_URL }}client/static/img/favicon.ico" type="image/x-icon"> -->
-
-</head>
-
-<body>
-    {% block content %}
-        <h1>
-            Gallery details: {{ gallery.title }}
-        </h1>
-
-        {% for photo in photos %}
-        <h3><a href="/photo/{{photo.slug}}">{{photo.title}}</a></h3>
-        <img src='https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{photo.file}}'>
-        {% endfor %}
-    {% endblock %}
-</body>
+    {% for photo in photos %}
+    <div><a href="/photo/{{photo.slug}}">{{photo.title}}</a></div>
+    <img src='https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{photo.file}}'>
+    {% endfor %}
+{% endblock %}

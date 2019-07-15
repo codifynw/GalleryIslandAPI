@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from core.models import Photo
-from .serializers import UserSerializer, GroupSerializer, PhotoSerializer
+from core.models import Photo, Gallery
+from .serializers import UserSerializer, GroupSerializer, PhotoSerializer, GallerySerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -25,3 +25,10 @@ class PhotoViewSet(viewsets.ModelViewSet):
     """
     queryset = Photo.objects.all()
     serializer_class = PhotoSerializer
+
+class GalleryViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Gallery.objects.all()
+    serializer_class = GallerySerializer

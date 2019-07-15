@@ -1,10 +1,33 @@
 #gallery-container {
-    display: none;
-    background-color: tomato;
     top: 0px;
     left: 0px;
     width: 100%;
     z-index: -1;
+    display: none;
+    overflow: auto;
     position: fixed;
     min-height:100vh;
+    text-align: right;
+    margin-right: 60px;
+    background-color: tomato;
+}
+
+#gallery-container img {
+    max-width: 50%;
+}
+
+.gallery-title {
+    color: white;
+    margin-top: 20%;
+    margin-right: 20%;
+    font-weight: 300;
+    text-align: right;
+    letter-spacing: .25em;
+    font-family: "Montserrat";
+}
+
+.gallery-bg {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
 }

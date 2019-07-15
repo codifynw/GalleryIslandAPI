@@ -9,8 +9,22 @@ $(document).ready(function(){
     //     }
     // )
 
+    var returnHome = function() {
+        $('.menu-item').removeClass('active');
+        $('body').addClass('menu-running');
+        $('#fullwidth-video').fadeIn();
+        $('#gallery-container').hide();
+        setTimeout(function(){
+            $('body').removeClass('menu-running');
+        }, 2000);
+    }
 
     $('.menu-item').click(function() {
+        if ( $('body').hasClass('gallery-view') ) {
+            returnHome();
+            $('body').removeClass('gallery-view')
+        }
+
         $('.link-target').removeClass('open');
         $('.menu-item').removeClass('active');
         // $('.link-to-gallery').addClass('active');
@@ -19,11 +33,11 @@ $(document).ready(function(){
     })
 
     $('.gallery-link').click(function() {
+        var self = $(this)
         $('body').addClass('menu-running');
         setTimeout(function(){
             $('.gallery-index').removeClass('open');
         }, 300);
-        $('body').addClass('menu-running');
         setTimeout(function(){
             $('#fullwidth-video').fadeOut();
             $('#gallery-container').show();
@@ -32,7 +46,27 @@ $(document).ready(function(){
             $('body').removeClass('menu-running');
         }, 2000);
 
-        window.history.pushState({}, "Test Title", "/gallery/favorites");
+        function loadGallery(data) {
+            console.log('load gallery yo');
+            console.log(data);
+            var template = $('#gallery-template').html();
+            var rendered = Mustache.render(template, data);
+            $('#gallery-container').html(rendered);
+        }
 
+        $.ajax({
+            url: BASE_URL + 'gallery/' + self.attr('data-slug'),
+        }).done(function(response) {
+            console.log(response);
+            // loadGallery(data);
+
+            setTimeout(function(){
+                $('#gallery-container').html(response);
+                $('#gallery-container').fadeIn();
+            }, 300);
+            $('body').addClass( "gallery-view" );
+        });
+
+        // window.history.pushState({}, "Test Title", 'gallery/' + self.attr('data-slug'));
     })
 })

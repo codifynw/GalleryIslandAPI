@@ -15,6 +15,9 @@
     <link rel="stylesheet" type="text/css" href="{% static "core/css/gallery.css" %}">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 
+    <script>
+        var BASE_URL = "{{BASE_URL}}";
+    </script>
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -39,8 +42,8 @@
         <div class="bg-gradient"></div>
         <div class="fullwidth-video-bg">
             <video playsinline="" muted="" onplaying="this.controls=false" autoplay loop>
-                <!-- <source src="https://galleryisland.s3-us-west-2.amazonaws.com/static/manual/mm_bg.mp4" type='video/mp4;'> -->
-                <source src="https://download.videvo.net/videvo_files/video/premium/video0002/small_watermarked/montenegro_beach_sunsetTL4k00_preview.mp4" type='video/mp4;'>
+                <source src="https://galleryisland.s3-us-west-2.amazonaws.com/static/manual/mm_bg.mp4" type='video/mp4;'>
+                <!-- <source src="https://download.videvo.net/videvo_files/video/premium/video0002/small_watermarked/montenegro_beach_sunsetTL4k00_preview.mp4" type='video/mp4;'> -->
             </video>
         </div>
     </div>
@@ -62,6 +65,8 @@
             {% for gallery in galleries %}
                 <!-- <li class="gallery-link">{{gallery.title}}</li> -->
                 <div class="gallery-link"
+                    data-id="{{gallery.id}}"
+                    data-slug="{{gallery.slug}}"
                     data-href="/gallery/{{gallery.slug}}">{{gallery.title}}</div>
             {% endfor %}
 
