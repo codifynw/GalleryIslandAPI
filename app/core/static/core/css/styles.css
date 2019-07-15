@@ -98,13 +98,13 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
 
 
 
-/* MAIN */
+/* Border Elements */
 .container {
     margin: 0px 20px;
     position: relative;
 }
 
-.main {
+.border-elements {
     z-index: 100;
     color: white;
     position: fixed;
@@ -112,42 +112,49 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     left: 80px;
 }
 
-.logo-text {
-    white-space: nowrap;
-    font-size: .5em;
-    margin-top: 135px;
-    letter-spacing: 8px;
-    padding-left: 3px;
+.logo-img {
+    height: 140px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("https://galleryisland.s3-us-west-2.amazonaws.com/static/manual/mm_logo.png");
 }
 
-.main .name {
-    display: flex;
-    font-size: 48px;
+.logo-text {
+    font-size: 26px;
+    letter-spacing: 8px;
+    white-space: nowrap;
+    padding-left: 12px;
+    margin-top: -20px;
+}
+
+.border-elements .logo-container {
     overflow: hidden;
     text-transform: uppercase;
 }
 
-.main .name img {
+.border-elements .logo-container img {
     left: 50%;
-    height: 100%;
+    height: 95%;
     position: absolute;
-    transform: translateX(-50%);
+    transform: translateX(-51.5%);
 }
 
-.main .tagline {
+.border-elements .tagline {
     position: fixed;
     bottom: 30px;
     right: 30px;
 }
 
-.main .funny {
+.border-elements .funny {
     font-size: 14px;
     opacity: .7;
 }
 
 /* Galleries Menu */
 .gallery-index {
-    right: 0;
+    top: 0px;
+    right: 0px;
     width: 70%;
     height: 100%;
     overflow: scroll;
