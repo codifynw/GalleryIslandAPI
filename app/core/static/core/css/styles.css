@@ -108,8 +108,8 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     z-index: 100;
     color: white;
     position: fixed;
-    top: 60px;
-    left: 100px;
+    top: 20px;
+    left: 80px;
 }
 
 .logo-text {

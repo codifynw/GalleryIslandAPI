@@ -1,13 +1,20 @@
 {% block content %}
-    <div class="bg-gradient"></div>
-    <div class="gallery-bg"
-        style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{cover_photo.file}}')"></div>
-    <h1 class='gallery-title'>
-        {{ gallery.title }}
-    </h1>
-
-    {% for photo in photos %}
-    <div><a href="/photo/{{photo.slug}}">{{photo.title}}</a></div>
-    <img src='https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{photo.file}}'>
-    {% endfor %}
+    <h1 class='gallery-title'>{{ gallery.title }}</h1>
+    <div class="gallery-container">
+        <div class="bg-gradient"></div>
+        <div class="gallery-bg"
+            style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{cover_photo.file}}')"></div>
+            <div class="gallery-photos">
+                {% for photo in photos %}
+                <div class="photo-row">
+                        <div class="photo-row-block photo-row-text">
+                            <a href="/photo/{{photo.slug}}">{{photo.title}}</a>
+                            <p>{{photo.caption}}</p>
+                        </div>
+                        <div class="photo-row-block photo-row-photo"
+                            style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{photo.file}}')"></div>
+                </div>
+                {% endfor %}
+            </div>
+    </div>
 {% endblock %}
