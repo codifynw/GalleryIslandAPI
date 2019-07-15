@@ -10,6 +10,7 @@ class Gallery(models.Model):
     slug = AutoSlugField(populate_from='title', default="needs-slug")
     user = models.ForeignKey(User, on_delete=models.CASCADE, default = 1)
     cover_photo = models.ForeignKey('Photo', on_delete=models.CASCADE, default=None, null=True)
+    visible = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
