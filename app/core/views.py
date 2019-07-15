@@ -25,7 +25,7 @@ def image_upload(request):
 
 def index(request):
     photos = Photo.objects.all()
-    galleries = Gallery.objects.all()
+    galleries = Gallery.objects.all().filter(visible="true")
     return render(request, 'core/index.html', {'photos': photos, 'galleries': galleries, 'BASE_URL':settings.BASE_URL})
 
 def photo_detail(request,slug):
