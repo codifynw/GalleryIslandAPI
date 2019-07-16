@@ -3,17 +3,25 @@
     <div class="gallery-container">
         <div class="bg-gradient"></div>
         <div class="gallery-bg"
-            style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{cover_photo.file}}')"></div>
+            style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{cover_photo.file}}')">
+        </div>
             <div class="gallery-photos">
                 {% for photo in photos %}
-                <div class="photo-row">
-                        <div class="photo-row-block photo-row-text">
+                    {% if not forloop.counter|divisibleby:2 %}
+                        <div class="photo-row">
+                    {% endif %}
+                    
+                    <div class="photo-row-block photo-row-photo"
+                        style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{photo.file}}')">
+                        <div class="gallery-photo-wrapper">
                             <a href="/photo/{{photo.slug}}">{{photo.title}}</a>
                             <p>{{photo.caption}}</p>
                         </div>
-                        <div class="photo-row-block photo-row-photo"
-                            style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{photo.file}}')"></div>
-                </div>
+                    </div>
+
+                    {% if forloop.counter|divisibleby:2 or forloop.last %}
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
     </div>
