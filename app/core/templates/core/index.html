@@ -12,7 +12,9 @@
         <link rel="stylesheet" type="text/css" href="{% static "core/css/normalize.css" %}">
         <link rel="stylesheet" type="text/css" href="{% static "core/css/styles.css" %}">
         <link rel="stylesheet" type="text/css" href="{% static "core/css/menu.css" %}">
-        <link rel="stylesheet" type="text/css" href="{% static "core/css/gallery-index.css" %}">
+        <!-- <link rel="stylesheet" type="text/css" href="{% static "core/css/gallery-index-horiz-scroll.css" %}"> -->
+        <!-- <link rel="stylesheet" type="text/css" href="{% static "core/css/gallery-index.css" %}"> -->
+        <link rel="stylesheet" type="text/css" href="{% static "core/css/gallery-compare.css" %}">
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 
         <script>
@@ -46,6 +48,12 @@
                     <!-- <source src="https://download.videvo.net/videvo_files/video/premium/video0002/small_watermarked/montenegro_beach_sunsetTL4k00_preview.mp4" type='video/mp4;'> -->
                 </video>
             </div>
+        </div>
+        <div class="modal">
+            <div class="modal-close">X</div>
+            <div class="modal-prev-arrow"><</div>
+            <div class="modal-next-arrow">></div>
+            <div class="modal-target"></div>
         </div>
         <div id="gallery-target"></div>
         <div class="container">

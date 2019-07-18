@@ -10,9 +10,10 @@
                     {% if not forloop.counter|divisibleby:2 %}
                         <div class="photo-row">
                     {% endif %}
-                    
+
                     <div class="photo-row-block photo-row-photo"
-                        style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{photo.file}}')">
+                        style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{photo.file}}')"
+                        data-id="{{photo.id}}">
                         <div class="gallery-photo-wrapper">
                             <a href="/photo/{{photo.slug}}">{{photo.title}}</a>
                             <p>{{photo.caption}}</p>
