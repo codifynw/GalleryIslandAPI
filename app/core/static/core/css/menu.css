@@ -54,3 +54,13 @@ body.gallery-view .menu .menu-item {
 body.gallery-view .menu:hover .menu-item {
     font-size: 1.2rem;
 }
+
+body.gallery-view .menu-item.active {
+    -webkit-transform: translateX(-2rem);
+    transform: translateX(-2rem);
+}
+
+body.gallery-view .menu:hover .menu-item.active {
+    -webkit-transform: translateX(0rem);
+    transform: translateX(0rem);
+}

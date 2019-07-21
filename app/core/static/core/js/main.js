@@ -1,12 +1,14 @@
 $(document).ready(function(){
-
     window.GI = {};
 
     $.ajax({
         url: BASE_URL + 'api/gallery/',
     }).done(function(response) {
         GI.galleries = response;
+        console.log(GI.galleries);
     });
+
+
 
     // $('.link-to-gallery').mouseenter(
     //     function() {
@@ -26,7 +28,6 @@ $(document).ready(function(){
             $('#fullwidth-video').fadeIn();
         }, 800);
         setTimeout(function(){
-            $('#fullwidth-video').fadeIn();
             $('body').removeClass('menu-running');
         }, 2000);
     }
@@ -75,7 +76,7 @@ $(document).ready(function(){
         }
 
         $.ajax({
-            url: BASE_URL + 'gallery/' + self.attr('data-slug'),
+            url: BASE_URL + 'gallery-content/' + self.attr('data-slug'),
         }).done(function(response) {
             loadGallery(response, function() {
                 var photoIDs = [];
@@ -115,7 +116,7 @@ $(document).ready(function(){
             });
         });
 
-        // window.history.pushState({}, "Test Title", 'gallery/' + self.attr('data-slug'));
+        window.history.pushState({}, "Test Title", 'gallery/' + self.attr('data-slug'));
     })
 })
 

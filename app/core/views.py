@@ -44,16 +44,22 @@ def photo_detail(request,slug):
     return render(request, 'core/photo_detail.html', {'photo': photo, 'galleries': galleries})
     # return render(request, 'photos/details.html', {'photo': photo,'next_photo': next_photo,'prev_photo': prev_photo, 'key': os.environ['MAPS_KEY']})
 
-def gallery_detail(request,slug):
+def gallery(request,slug):
     gallery = get_object_or_404(Gallery, slug=slug)
     # cover_photo = get_object_or_404(Photo, title=gallery.cover_photo)
     cover_photo = Photo.objects.get(title=gallery.cover_photo)
     photos = gallery.photo_set.all()
 
-    print("****")
-    print(cover_photo.file)
-    print(gallery)
+    # return render(request, 'core/gallery_detail.html', {'gallery': gallery, 'photos': photos})
+    return render(request, 'core/gallery.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo, 'BASE_URL':settings.BASE_URL})
+    # return render(request, 'photos/details.html', {'photo': photo,'next_photo': next_photo,'prev_photo': prev_photo, 'key': os.environ['MAPS_KEY']})
+
+def gallery_content(request,slug):
+    gallery = get_object_or_404(Gallery, slug=slug)
+    # cover_photo = get_object_or_404(Photo, title=gallery.cover_photo)
+    cover_photo = Photo.objects.get(title=gallery.cover_photo)
+    photos = gallery.photo_set.all()
 
     # return render(request, 'core/gallery_detail.html', {'gallery': gallery, 'photos': photos})
-    return render(request, 'core/gallery_detail.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo})
+    return render(request, 'core/gallery_content.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo})
     # return render(request, 'photos/details.html', {'photo': photo,'next_photo': next_photo,'prev_photo': prev_photo, 'key': os.environ['MAPS_KEY']})

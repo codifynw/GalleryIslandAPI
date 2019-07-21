@@ -28,13 +28,13 @@
         <script src="{% static "core/js/main.js" %}"></script>
     </head>
 
-    <body class="loaded">
+    <body class="loaded gallery-view">
         {% block content %}
 
         <div class="bg-curtain"></div>
         <div class="menu">
             <div class="menu-item" data-target='home'>Home</div>
-            <div class="menu-item link-to-gallery" data-target='gallery-index'>Galleries</div>
+            <div class="menu-item link-to-gallery active" data-target='gallery-index'>Galleries</div>
             <div class="menu-item" data-target="about-section">Map</div>
             <div class="menu-item" data-target="about-section">About</div>
             <div class="menu-item" data-target='press-section'>Contact</div>
@@ -54,7 +54,39 @@
             <div class="modal-next-arrow">></div>
             <div class="modal-target"></div>
         </div>
-        <div id="gallery-target"></div>
+
+
+        <div id="gallery-target">
+            <h1 class='gallery-title'>{{ gallery.title }}</h1>
+            <div class="gallery-container">
+                <div class="bg-gradient"></div>
+                <div class="gallery-bg"
+                    style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{cover_photo.file}}')">
+                </div>
+                    <div class="gallery-photos">
+                        {% for photo in photos %}
+                            {% if not forloop.counter|divisibleby:2 %}
+                                <div class="photo-row">
+                            {% endif %}
+
+                            <div class="photo-row-block photo-row-photo"
+                                style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{photo.file}}')"
+                                data-id="{{photo.id}}">
+                                <div class="gallery-photo-wrapper">
+                                    <a href="/photo/{{photo.slug}}">{{photo.title}}</a>
+                                    <p>{{photo.caption}}</p>
+                                </div>
+                            </div>
+
+                            {% if forloop.counter|divisibleby:2 or forloop.last %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+            </div>
+        </div>
+
+
         <div class="container">
             <div class="border-elements">
                 <div class="logo-container">
@@ -79,4 +111,9 @@
         </div>
         {% endblock %}
     </body>
+
+    <script>
+        $('#fullwidth-video').hide();
+        $('#gallery-target').fadeIn();
+    </script>
 </html>
