@@ -1,0 +1,32 @@
+{
+  "name": "galleryislandapi",
+  "version": "1.0.0",
+  "description": "API in app, react frontend in frontend dir",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p",
+    "build-prod": "webpack -p",
+    "watch": "webpack --watch -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://CodifyNW@github.com/codifynw/GalleryIslandAPI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codifynw/GalleryIslandAPI/issues"
+  },
+  "homepage": "https://github.com/codifynw/GalleryIslandAPI#readme",
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "mustache": "^3.0.1",
+    "webpack": "^4.36.1"
+  },
+  "devDependencies": {
+    "css-loader": "^3.1.0",
+    "html-loader": "^0.5.5",
+    "webpack-cli": "^3.3.6"
+  }
+}
