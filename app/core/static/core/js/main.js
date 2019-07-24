@@ -1,10 +1,15 @@
 /* global $ */
 import template from '../../../templates/core/partials/gallery-list-item.html';
 import { buildGalleryListListeners, returnHome } from './components/navigation';
+import { runLandingAnimation } from './animations';
 // import css from 'file.css';
 
 $(document).ready(function(){
     window.GI = {};
+
+    if (root) {
+        runLandingAnimation();
+    }
 
     let buildGalleryMenu = function(galleries) {
         var text = Mustache.render(template,{gallery:galleries});
@@ -37,7 +42,6 @@ $(document).ready(function(){
     $('.modal-close').click(function() {
         $('.modal').fadeOut();
     });
-
 
     $('.menu-item').click(function() {
         if ( $('body').hasClass('gallery-view') ) {

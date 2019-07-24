@@ -1,0 +1,62 @@
+#landing-section {
+    overflow: hidden;
+}
+
+.aperture-blade {
+    transition: all .8s;
+}
+
+.aperture-blade-1 {
+    height: 100vh;
+    width: 100vh;
+    transform: rotate(45deg) translateX(-50%);
+    background-color: black;
+    position: absolute;
+    left: 0px;
+    top: 35%;
+}
+
+.aperture-blade-2 {
+    height: 100vh;
+    width: 100vh;
+    transform: rotate(135deg) translateX(-50%);
+    background-color: black;
+    position: absolute;
+    left: 0;
+    top: -35vh;
+}
+
+.aperture-blade-3 {
+    height: 100vh;
+    width: 100vh;
+    transform: rotate(-45deg);
+    background-color: black;
+    position: absolute;
+    left: 60%;
+    top: 0px;
+}
+
+.aperture-blade-4 {
+    height: 100vh;
+    width: 100vh;
+    transform: rotate(225deg) translateX(-50%);
+    background-color: black;
+    position: absolute;
+    top: 35%;
+}
+
+body:hover .aperture-blade-1 {
+    left: -800px;
+}
+
+body:hover .aperture-blade-2 {
+    top: -100vh;
+}
+
+body:hover .aperture-blade-3 {
+    left: 120%;
+}
+
+body:hover .aperture-blade-4 {
+    top: 100%;
+}
