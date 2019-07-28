@@ -43,12 +43,13 @@
 #gallery-photos {
     margin: 0 auto;
     max-width: 1750px;
+    overflow-x: scroll;
     padding: 100px 0 200px;
     width: calc(100% - 200px);
 }
 
 .photo-row {
-    display: flex;
+    display: inline-flex;
     margin-bottom: 50px;
     align-items: center;
     justify-content: center;

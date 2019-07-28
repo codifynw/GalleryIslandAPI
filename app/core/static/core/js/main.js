@@ -1,12 +1,15 @@
 /* global $, Mustache, BASE_URL, GI */
 import template from '../../../templates/core/partials/gallery-list-item.html';
-import { buildGalleryListListeners, returnHome } from './components/navigation';
+import { buildGalleryListListeners, returnHome, updatePage } from './components/navigation';
+import './the-css.js';
 // import { runLandingAnimation } from './animations';
 
 // import css from 'file.css';
 
 window.initCore = function () {
-    console.log('loaded main.js');
+    if (GI.activePage) {
+        updatePage(GI.activePage);
+    }
 
     const buildGalleryMenu = function (galleries) {
         var text = Mustache.render(template, { gallery: galleries });

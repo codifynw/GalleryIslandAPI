@@ -35,7 +35,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: ['style-loader', 'css-loader', 'postcss-loader']
             },
             {
                 test: /\.(woff(2)?|ttf|eot|svg|otf)(\?v=\d+\.\d+\.\d+)?$/,
@@ -65,10 +65,10 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery',
             jquery: 'jquery',
-            Mustache: 'mustache',
+            Mustache: 'mustache'
         })
         // new BundleAnalyzerPlugin()
-    ],
+    ]
     // devServer: {
     //     contentBase: path.join(__dirname, 'dist'),
     //     publicPath: '/dist',
