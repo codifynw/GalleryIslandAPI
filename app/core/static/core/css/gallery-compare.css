@@ -44,20 +44,23 @@
     margin: 0 auto;
     max-width: 1750px;
     overflow-x: scroll;
+    white-space: nowrap;
     padding: 100px 0 200px;
     width: calc(100% - 200px);
 }
 
 .photo-row {
-    display: inline-flex;
-    margin-bottom: 50px;
+    width: 75%;
+    height: 80vh;
+    margin-right: 80px;
     align-items: center;
+    display: inline-flex;
     justify-content: center;
 }
 
 .photo-row-block {
     width: 50%;
-    padding: 0 100px;
+    margin: 0 30px;
     margin-bottom: 0;
     position: relative;
     box-sizing: border-box;
@@ -69,8 +72,8 @@
 }
 
 .photo-row-photo {
+    height: 100%;
     cursor: pointer;
-    min-height: 35vh;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -81,14 +84,21 @@
 }
 
 .gallery-photo-wrapper {
-    bottom: 48px;
+    left: 50%;
     color: white;
+    bottom: 100px;
     padding: 20px;
     text-align: left;
-    text-align: left;
+    text-align: center;
     margin-right: 30px;
     position: absolute;
+    transform: translateX(-50%);
     background-color: rgba(0,0,0,.4);
+}
+
+.photo-row-photo:nth-child(2n) .gallery-photo-wrapper {
+    bottom: initial;
+    top: 70px;
 }
 
 .gallery-photo-wrapper a {

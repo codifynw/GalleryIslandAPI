@@ -21,7 +21,7 @@ export function initXScroll () {
         var delta = Math.max(-1, Math.min(1, (event.originalEvent.wheelDelta || -event.originalEvent.detail)));
         console.log('scroll');
 
-        $(this).scrollLeft($(this).scrollLeft() - (delta * 1));
+        $(this).scrollLeft($(this).scrollLeft() - (delta * 20));
         event.preventDefault();
     });
 }
