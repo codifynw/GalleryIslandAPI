@@ -61,5 +61,5 @@ def gallery_content(request,slug):
     photos = gallery.photo_set.all()
 
     # return render(request, 'core/gallery_detail.html', {'gallery': gallery, 'photos': photos})
-    return render(request, 'core/gallery_content.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo})
+    return render(request, 'core/partials/gallery-content.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo})
     # return render(request, 'photos/details.html', {'photo': photo,'next_photo': next_photo,'prev_photo': prev_photo, 'key': os.environ['MAPS_KEY']})

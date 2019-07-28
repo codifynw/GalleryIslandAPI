@@ -32,33 +32,7 @@
 
 
         <div id="gallery-target">
-            <h1 class='gallery-title'>{{ gallery.title }}</h1>
-            <div class="gallery-container">
-                <div class="bg-gradient"></div>
-                <div class="gallery-bg"
-                    style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{cover_photo.file}}')">
-                </div>
-                    <div id="gallery-photos">
-                        {% for photo in photos %}
-                            {% if not forloop.counter|divisibleby:2 %}
-                                <div class="photo-row">
-                            {% endif %}
-
-                            <div class="photo-row-block photo-row-photo"
-                                style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{photo.file}}')"
-                                data-id="{{photo.id}}">
-                                <div class="gallery-photo-wrapper">
-                                    <a href="/photo/{{photo.slug}}">{{photo.title}}</a>
-                                    <p>{{photo.caption}}</p>
-                                </div>
-                            </div>
-
-                            {% if forloop.counter|divisibleby:2 or forloop.last %}
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-            </div>
+            {% include "core/partials/gallery-content.html" %}
         </div>
 
 
@@ -86,9 +60,12 @@
         </div>
         {% endblock %}
     </body>
-
     <script>
         $('#fullwidth-video').hide();
         $('#gallery-target').fadeIn();
+        GI.activePage = 'gallery';
+        $(document).ready(function(){
+            initCore();
+        });
     </script>
 </html>

@@ -2,14 +2,11 @@
 import template from '../../../templates/core/partials/gallery-list-item.html';
 import { buildGalleryListListeners, returnHome } from './components/navigation';
 // import { runLandingAnimation } from './animations';
-import galleryFunctions from './gallery.js';
 
 // import css from 'file.css';
 
 window.initCore = function () {
     console.log('loaded main.js');
-    window.GI = {};
-    galleryFunctions.initXScroll();
 
     const buildGalleryMenu = function (galleries) {
         var text = Mustache.render(template, { gallery: galleries });
