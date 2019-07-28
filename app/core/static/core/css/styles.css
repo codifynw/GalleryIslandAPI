@@ -1,7 +1,7 @@
 body {
     overflow-x: hidden;
-    font-family: "Montserrat";
     background: rgb(0,0,0);
+    font-family: 'Lato', sans-serif;
 }
 
 /* BG Video */
@@ -210,4 +210,48 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
 .gallery-link:hover a {
     color: #fff;
     text-shadow: 0 0 1vh currentcolor;
+}
+
+
+
+
+
+
+
+
+
+
+
+.LandingAnimation {
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+    width: 100%;
+    color: white;
+    height: 100%;
+    z-index: 9000;
+    font-size: 48px;
+    position: absolute;
+    pointer-events: none;
+}
+.LandingAnimation .index-joker-text-block {
+    opacity: 1;
+    transition: opacity 1.6s cubic-bezier(.25, .1, .25, 1);
+}
+
+.LandingAnimation .index-joker-text-block .text,
+.LandingAnimation .index-joker-text-block h1 {
+    transform: translateY(0);
+    transition: transform 1.6s cubic-bezier(.25, .1, .25, 1);
+}
+
+.LandingAnimation.loaded .index-joker-text-block {
+    transition-delay: .8s;
+    opacity: 0;
+}
+
+.LandingAnimation.loaded .index-joker-text-block .text,
+.LandingAnimation.loaded .index-joker-text-block h1 {
+    transition-delay: 1s;
+    transform: translateY(30px);
 }

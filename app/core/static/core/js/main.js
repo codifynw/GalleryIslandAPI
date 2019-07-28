@@ -2,13 +2,17 @@
 import template from '../../../templates/core/partials/gallery-list-item.html';
 import { buildGalleryListListeners, returnHome, updatePage } from './components/navigation';
 import './the-css.js';
-// import { runLandingAnimation } from './animations';
+import { runLandingPageAnimation } from './animations';
 
 // import css from 'file.css';
 
 window.initCore = function () {
     if (GI.activePage) {
         updatePage(GI.activePage);
+    }
+
+    if (GI.isLandingPage) {
+        runLandingPageAnimation();
     }
 
     const buildGalleryMenu = function (galleries) {
@@ -52,6 +56,14 @@ window.initCore = function () {
         // $('.link-to-gallery').addClass('active');
         $(this).addClass('active');
         $('.' + $(this).attr('data-target')).addClass('open');
+    });
+
+    $(document).ready(function () {
+        var hamburger = $('#hamburger-icon');
+        hamburger.click(function () {
+            hamburger.toggleClass('active');
+            return false;
+        });
     });
 };
 

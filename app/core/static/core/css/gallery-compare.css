@@ -26,7 +26,6 @@
     font-weight: 300;
     text-align: right;
     letter-spacing: .25em;
-    font-family: "Montserrat";
 }
 
 .gallery-bg {
@@ -94,11 +93,6 @@
     position: absolute;
     transform: translateX(-50%);
     background-color: rgba(0,0,0,.4);
-}
-
-.photo-row-photo:nth-child(2n) .gallery-photo-wrapper {
-    bottom: initial;
-    top: 70px;
 }
 
 .gallery-photo-wrapper a {

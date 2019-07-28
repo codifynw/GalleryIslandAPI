@@ -19,9 +19,7 @@ export function initXScroll () {
     console.log($('body'));
     $('#gallery-photos').on('mousewheel DOMMouseScroll', function (event) {
         var delta = Math.max(-1, Math.min(1, (event.originalEvent.wheelDelta || -event.originalEvent.detail)));
-        console.log('scroll');
-
-        $(this).scrollLeft($(this).scrollLeft() - (delta * 20));
+        $(this).scrollLeft($(this).scrollLeft() - (delta * 40));
         event.preventDefault();
     });
 }

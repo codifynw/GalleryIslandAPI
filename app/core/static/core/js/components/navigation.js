@@ -5,10 +5,13 @@ export function updatePage (newPage) {
     GI.activePage = newPage;
     switch (GI.activePage) {
     case 'gallery':
-        console.log('the case is gallery');
         initXScroll();
         break;
+    case 'home':
+        console.log('return to home');
+        break;
     default:
+        console.log('default page');
     }
 }
 
