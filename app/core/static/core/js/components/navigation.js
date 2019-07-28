@@ -5,6 +5,7 @@ export function updatePage (newPage) {
     GI.activePage = newPage;
     switch (GI.activePage) {
     case 'gallery':
+        console.log('case gallery');
         initXScroll();
         break;
     case 'home':

@@ -154,17 +154,18 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
 /* Galleries Menu */
 .gallery-index {
     top: 0px;
-    right: 0px;
+    left: 0px;
     width: 70%;
     height: 100%;
     overflow: scroll;
     overflow-x: hidden;
     position: absolute;
-    margin-right: -100%;
+    margin-left: -100%;
     transition: all .3s;
 }
+.gallery-index::-webkit-scrollbar { width: 0 !important }
 .gallery-index.open {
-    margin-right: 0;
+    margin-left: 300px;
 }
 
 .gallery-list {
@@ -187,10 +188,10 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
 
 .gallery-link {
     width: 100%;
-    height: 140px;
-    line-height: 66px;
-    font-size: 4.4rem;
+    height: 120px;
+    font-size: 3rem;
     position: relative;
+    letter-spacing: 10px;
     text-overflow: nowrap;
     text-transform: uppercase;
     color: rgba(187,194,229,.3);
@@ -233,7 +234,24 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     font-size: 48px;
     position: absolute;
     pointer-events: none;
+    /* background-color: rgba(0,0,0); */
 }
+
+.LandingAnimation .logo-img {
+    height: 500px;
+    opacity: 1;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 1.6s cubic-bezier(.25, .1, .25, 1);
+    background-image: url("https://galleryisland.s3-us-west-2.amazonaws.com/static/manual/mm_logo.png");
+}
+
+
+.LandingAnimation.loaded .logo-img {
+    transform: translateY(0px);
+}
+
 .LandingAnimation .index-joker-text-block {
     opacity: 1;
     transition: opacity 1.6s cubic-bezier(.25, .1, .25, 1);

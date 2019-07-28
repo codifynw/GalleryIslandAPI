@@ -7,7 +7,9 @@ import { runLandingPageAnimation } from './animations';
 // import css from 'file.css';
 
 window.initCore = function () {
+    console.log('main - activePage-',GI.activePage);
     if (GI.activePage) {
+        console.log(GI.activePage);
         updatePage(GI.activePage);
     }
 
