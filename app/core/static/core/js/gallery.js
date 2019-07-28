@@ -1,22 +1,22 @@
-let initXScroll = function() {
-    console.log('init X SCROLL!')
-    function scrollHorizontally(e) {
+const initXScroll = function () {
+    console.log('init X SCROLL!');
+    function scrollHorizontally (e) {
         console.log('i am scrolled');
         e = window.event || e;
         var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('yourDiv').scrollLeft -= (delta*40); // Multiplied by 40
+        document.getElementById('yourDiv').scrollLeft -= (delta * 40); // Multiplied by 40
         e.preventDefault();
     }
     if (document.getElementById('gallery-photos').addEventListener) {
         // IE9, Chrome, Safari, Opera
-        document.getElementById('gallery-photos').addEventListener("mousewheel", scrollHorizontally, false);
+        document.getElementById('gallery-photos').addEventListener('mousewheel', scrollHorizontally, false);
         // Firefox
-        document.getElementById('gallery-photos').addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        document.getElementById('gallery-photos').addEventListener('DOMMouseScroll', scrollHorizontally, false);
     } else {
         // IE 6/7/8
-        document.getElementById('gallery-photos').attachEvent("onmousewheel", scrollHorizontally);
+        document.getElementById('gallery-photos').attachEvent('onmousewheel', scrollHorizontally);
     }
-}
+};
 
 export default {
     initXScroll: initXScroll
