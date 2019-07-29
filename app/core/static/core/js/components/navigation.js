@@ -1,6 +1,8 @@
 /* global $, BASE_URL, GI */
 import { initXScroll } from '../gallery.js';
 
+GI.hamburger = $('#hamburger-icon');
+
 export function navigateTo (pageString) {
 }
 
@@ -98,4 +100,38 @@ export function returnHome () {
         $('body').removeClass('menu-running');
     }, 2000);
     window.history.pushState({}, 'Home', '/');
+}
+
+export function buildNavigationListeners () {
+    $('.menu-item').click(function () {
+        if ($('body').hasClass('gallery-view')) {
+            returnHome();
+            $('body').removeClass('gallery-view');
+        }
+
+        $('.link-target').removeClass('open');
+        $('.menu-item').removeClass('active');
+        // $('.link-to-gallery').addClass('active');
+        $(this).addClass('active');
+        $('.' + $(this).attr('data-target')).addClass('open');
+    });
+
+    $('.logo-container').click(function () {
+        navigateTo('home');
+        if ($('body').hasClass('gallery-view')) {
+            returnHome();
+            $('body').removeClass('gallery-view');
+        }
+
+        $('.link-target').removeClass('open');
+        $('.menu-item').removeClass('active');
+        // $('.link-to-gallery').addClass('active');
+        $(this).addClass('active');
+        $('.' + $(this).attr('data-target')).addClass('open');
+    });
+
+    GI.hamburger.click(function () {
+        GI.hamburger.toggleClass('active');
+        return false;
+    });
 }

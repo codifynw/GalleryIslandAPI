@@ -1,6 +1,5 @@
 /* global $ */
 export function initXScroll () {
-    console.log('initXScroll')
     // function scrollHorizontally (e) {
     //     e = window.event || e;
     //     var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
@@ -16,7 +15,6 @@ export function initXScroll () {
     //     // IE 6/7/8
     //     document.getElementById('gallery-photos').attachEvent('onmousewheel', scrollHorizontally);
     // }
-    console.log($('body'));
     $('#gallery-photos').on('mousewheel DOMMouseScroll', function (event) {
         var delta = Math.max(-1, Math.min(1, (event.originalEvent.wheelDelta || -event.originalEvent.detail)));
         $(this).scrollLeft($(this).scrollLeft() - (delta * 40));

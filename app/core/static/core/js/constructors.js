@@ -1,10 +1,9 @@
 /* global $, Mustache, BASE_URL, GI */
-import buildGalleryListListeners from './components/navigation';
+import { buildGalleryListListeners } from './components/navigation';
 import galleryLITemplate from '../../../templates/core/partials/gallery-list-item.html';
 
 const buildGalleryMenu = function (galleries) {
     var text = Mustache.render(galleryLITemplate, { gallery: galleries });
-    console.log('pre build gallery menu');
     $('.gallery-list').append(text);
     buildGalleryListListeners();
 };
@@ -17,3 +16,10 @@ export const initGalleryMenu = function () {
         buildGalleryMenu(GI.galleries);
     });
 };
+
+//
+// var found = GI.galleries.find(function(element) {
+//   return id = 2;
+// });
+//
+// console.log(found);
