@@ -7,6 +7,7 @@ router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'photos', views.PhotoViewSet)
 router.register(r'gallery', views.GalleryViewSet)
+router.register(r'menu-item', views.MenuItemViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

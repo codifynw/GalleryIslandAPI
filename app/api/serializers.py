@@ -1,13 +1,11 @@
 from django.contrib.auth.models import User, Group
-from core.models import Photo, Gallery
+from core.models import Photo, Gallery, MenuItem
 from rest_framework import serializers
-
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = ('url', 'username', 'email', 'groups')
-
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -24,3 +22,8 @@ class GallerySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Gallery
         fields = ('id','title', 'cover_photo', 'slug')
+
+class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = MenuItem
+        fields = ('name','url','rank')
