@@ -129,6 +129,7 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
 }
 
 .border-elements .logo-container {
+    cursor: pointer;
     overflow: hidden;
     text-transform: uppercase;
 }
@@ -165,7 +166,7 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
 }
 .gallery-index::-webkit-scrollbar { width: 0 !important }
 .gallery-index.open {
-    margin-left: 300px;
+    margin-left: 40%;
 }
 
 .gallery-list {
@@ -234,7 +235,43 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     font-size: 48px;
     position: absolute;
     pointer-events: none;
+    /* background-image: url("https://galleryisland.s3-us-west-2.amazonaws.com/static/videoOverlay.png"); */
     /* background-color: rgba(0,0,0); */
+}
+
+.LandingAnimation .top-half {
+    position: absolute;
+    width: 100%;
+    color: white;
+    height: 100%;
+    background-size: contain;
+    transform: translateY(0vh);
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 1.6s cubic-bezier(.25, .1, .25, 1);
+    background-image: url("https://galleryisland.s3-us-west-2.amazonaws.com/static/manual/videoOverlayTop.png");
+}
+
+.LandingAnimation .bottom-half {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    color: white;
+    height: 100%;
+    background-size: contain;
+    transform: translateY(0vh);
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 1.6s cubic-bezier(.25, .1, .25, 1);
+    background-image: url("https://galleryisland.s3-us-west-2.amazonaws.com/static/manual/videoOverlayBottom.png");
+}
+
+.LandingAnimation.open .top-half {
+    transform: translateY(-100vh);
+}
+
+.LandingAnimation.open .bottom-half {
+    transform: translateY(100vh);
 }
 
 .LandingAnimation .logo-img {
@@ -244,7 +281,6 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     background-position: center;
     background-repeat: no-repeat;
     transition: transform 1.6s cubic-bezier(.25, .1, .25, 1);
-    background-image: url("https://galleryisland.s3-us-west-2.amazonaws.com/static/manual/mm_logo.png");
 }
 
 

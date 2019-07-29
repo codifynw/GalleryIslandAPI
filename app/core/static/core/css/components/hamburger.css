@@ -1,3 +1,7 @@
+body.home #hamburger-icon {
+    display: none;
+}
+
 #hamburger-icon {
   width: 2em;
   height: 1.5em;

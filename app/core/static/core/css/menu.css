@@ -1,3 +1,7 @@
+body.gallery-view  .menu {
+    display: none;
+}
+
 .menu {
     top: 50%;
     z-index: 100;

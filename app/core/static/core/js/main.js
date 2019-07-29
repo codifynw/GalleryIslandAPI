@@ -60,6 +60,19 @@ window.initCore = function () {
         $('.' + $(this).attr('data-target')).addClass('open');
     });
 
+    $('.logo-container').click(function () {
+        if ($('body').hasClass('gallery-view')) {
+            returnHome();
+            $('body').removeClass('gallery-view');
+        }
+
+        $('.link-target').removeClass('open');
+        $('.menu-item').removeClass('active');
+        // $('.link-to-gallery').addClass('active');
+        $(this).addClass('active');
+        $('.' + $(this).attr('data-target')).addClass('open');
+    });
+
     $(document).ready(function () {
         var hamburger = $('#hamburger-icon');
         hamburger.click(function () {

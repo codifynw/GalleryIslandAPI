@@ -1,8 +1,9 @@
-//typical import
-import {TweenMax, Power2, TimelineLite} from "gsap/TweenMax";
-import css from '../css/landing.css';
+/* global $, GI */
+import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
 
 export function runLandingPageAnimation () {
-    console.log('run the animation');
     $('.LandingAnimation').addClass('loaded');
+    setTimeout(function () {
+        $('.LandingAnimation').addClass('open');
+    }, 4000);
 }

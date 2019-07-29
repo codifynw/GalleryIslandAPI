@@ -5,14 +5,13 @@ export function updatePage (newPage) {
     GI.activePage = newPage;
     switch (GI.activePage) {
     case 'gallery':
-        console.log('case gallery');
+        $('body').removeClass('home');
         initXScroll();
         break;
     case 'home':
-        console.log('return to home');
+        $('body').addClass('home');
         break;
     default:
-        console.log('default page');
     }
 }
 

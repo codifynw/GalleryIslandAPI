@@ -40,10 +40,7 @@
 }
 
 #gallery-photos {
-    margin: 0 auto;
-    max-width: 1750px;
     padding: 100px 0 200px;
-    width: calc(100% - 200px);
 }
 
 .photo-row {
