@@ -1,13 +1,15 @@
 /* global $, Mustache, BASE_URL, GI */
 import { buildGalleryListListeners } from './components/navigation';
-import galleryLITemplate from '../../../templates/core/partials/gallery-list-item.html';
+import galleryLITemplate from '../../../templates/core/mustacheTemplates/gallery-list-item.html';
+import menuItemTemplate from '../../../templates/core/mustacheTemplates/main-menu-list-item.html';
 
-export const initMenu = function () {
+export const initMainMenu = function () {
     $.ajax({
-        url: BASE_URL + 'api/menu/'
+        url: BASE_URL + 'api/menu-item/'
     }).done(function (response) {
         GI.menu = response;
-        buildGalleryMenu(GI.menu);
+        console.log(GI.menu);
+        buildMainMenu(GI.menu);
     });
 };
 
@@ -26,9 +28,20 @@ const buildGalleryMenu = function (galleries) {
     buildGalleryListListeners();
 };
 
+const buildMainMenu = function (menuItems) {
+    var text = Mustache.render(menuItemTemplate, { obj: menuItems.sort((a, b) => (a.rank > b.rank) ? 1 : -1) });
+    $('.menu').append(text);
+    buildGalleryListListeners();
+};
+// menuItems = prepareMenuItems(menuItems);
 //
-// var found = GI.galleries.find(function(element) {
-//   return id = 2;
+//
+// var found = GI.galleries.find(function (element) {
+//     return id = 2;
 // });
 //
 // console.log(found);
+//
+// const prepareMenuItems = function (menuItems) {
+//
+// }

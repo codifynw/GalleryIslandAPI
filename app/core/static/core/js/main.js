@@ -13,6 +13,7 @@ window.initCore = function () {
         runLandingPageAnimation();
     }
 
+    builders.initMainMenu();
     builders.initGalleryMenu();
 
     $('.modal-close').click(function () {
