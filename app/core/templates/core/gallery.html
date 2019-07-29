@@ -1,38 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
     {% include "core/partials/head.html" %}
-    {% include "core/partials/constants.html" %}
-
-    <body class="loaded gallery-view">
+    <body class="gallery-view">
+        {% include "core/partials/body-constants.html" with load_gallery=True %}
         {% block content %}
-
-        <div id="gallery-target">
-            {% include "core/partials/gallery-content.html" %}
-        </div>
-
-
         <div class="container">
-            <div class="border-elements">
-                <div class="logo-container">
-                    <div class="logo-img"></div>
-                    <div class='logo-text'>Miles Morgan</div>
-                </div>
-                <div class="tagline">
-                    <div class="funny">Powered by Chocolate Chip Cookies</div>
-                </div>
-            </div>
-        </div>
-        <div class="link-target gallery-index">
-            <div class="gallery-header"></div>
-            <div class="gallery-list">
-                {% for gallery in galleries %}
-                    <div class="gallery-link"
-                        data-id="{{gallery.id}}"
-                        data-slug="{{gallery.slug}}"
-                        data-href="/gallery/{{gallery.slug}}">{{gallery.title}}</div>
-                {% endfor %}
-            </div>
+            {% include "core/partials/container-constants.html" %}
         </div>
         {% endblock %}
     </body>

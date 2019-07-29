@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     {% include "core/partials/head.html" %}
-    {% include "core/partials/constants.html" %}
-    <body class="loaded home">
+    <body class="home">
+        {% include "core/partials/body-constants.html" %}
         {% block content %}
-        {% comment %}
-        {% include "core/partials/landing-animation.html" %}
-        {% endcomment %}
         <div id="gallery-target"></div>
         <div class="container">
-            <div class="border-elements">
-                <div class="logo-container">
-                    <div class="logo-img"></div>
-                    <div class='logo-text'>Miles Morgan</div>
-                </div>
-                <div class="tagline">
-                    <div class="funny">Powered by Chocolate Chip Cookies</div>
-                </div>
-            </div>
-        </div>
-        <div class="link-target gallery-index">
-            <div class="gallery-header"></div>
-            <div class="gallery-list">
-            </div>
+            {% include "core/partials/container-constants.html" %}
         </div>
         {% endblock %}
     </body>
     <script>
-        GI.activePage = 'home';
+        GI.entryPage = 'home';
         $(document).ready(function(){
             initCore();
         });

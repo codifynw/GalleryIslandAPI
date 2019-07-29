@@ -1,15 +1,13 @@
-/* global $, Mustache, BASE_URL, GI */
-import template from '../../../templates/core/partials/gallery-list-item.html';
-import { buildGalleryListListeners, returnHome, updatePage } from './components/navigation';
+/* global $, GI */
+import { navigateTo, returnHome, updatePage } from './components/navigation';
 import './the-css.js';
 import { runLandingPageAnimation } from './animations';
+import * as builders from 'constructors.js';
 
 // import css from 'file.css';
 
 window.initCore = function () {
-    console.log('main - activePage-',GI.activePage);
     if (GI.activePage) {
-        console.log(GI.activePage);
         updatePage(GI.activePage);
     }
 
@@ -17,31 +15,7 @@ window.initCore = function () {
         runLandingPageAnimation();
     }
 
-    const buildGalleryMenu = function (galleries) {
-        var text = Mustache.render(template, { gallery: galleries });
-        console.log('pre build gallery menu');
-        $('.gallery-list').append(text);
-        buildGalleryListListeners();
-    };
-
-    $.ajax({
-        url: BASE_URL + 'api/gallery/'
-    }).done(function (response) {
-        GI.galleries = response;
-        console.log('done with API');
-        console.log(response);
-        buildGalleryMenu(GI.galleries);
-    });
-
-    // $('.link-to-gallery').mouseenter(
-    //     function() {
-    //         $('.gallery-section').addClass('open');
-    //     }
-    // ).mouseleave(
-    //     function() {
-    //         $('.gallery-section').removeClass('open');
-    //     }
-    // )
+    builders.initGalleryMenu();
 
     $('.modal-close').click(function () {
         $('.modal').fadeOut();
@@ -61,6 +35,7 @@ window.initCore = function () {
     });
 
     $('.logo-container').click(function () {
+        navigateTo('home');
         if ($('body').hasClass('gallery-view')) {
             returnHome();
             $('body').removeClass('gallery-view');

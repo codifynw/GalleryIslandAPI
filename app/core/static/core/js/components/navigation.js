@@ -1,6 +1,9 @@
 /* global $, BASE_URL, GI */
 import { initXScroll } from '../gallery.js';
 
+export function navigateTo (pageString) {
+}
+
 export function updatePage (newPage) {
     GI.activePage = newPage;
     switch (GI.activePage) {
@@ -16,6 +19,7 @@ export function updatePage (newPage) {
 }
 
 export function buildGalleryListListeners () {
+    // This executes when clicking on a gallery from the gallery index list.
     $('.gallery-link').off().on('click', function () {
         var self = $(this);
         $('body').addClass('menu-running');

@@ -43,6 +43,21 @@ body.gallery-view  .menu {
     transition: background-color 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
+/* .menu .menu-item.active:after {
+    background-color: #ddd;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -200px;
+    display: block;
+    width: 10rem;
+    height: 0.1rem;
+    margin: auto;
+    content: '';
+    -webkit-transition: background-color 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: background-color 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+} */
+
 .menu .menu-item:hover, .menu .menu-item.active  {
     opacity: 1;
     font-size: 1.2rem;
