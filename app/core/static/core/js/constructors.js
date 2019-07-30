@@ -1,5 +1,5 @@
 /* global $, Mustache, BASE_URL, GI */
-import { buildGalleryListListeners } from './components/navigation';
+import { buildGalleryListListeners, buildNavigationListeners } from './components/navigation';
 import galleryLITemplate from '../../../templates/core/mustacheTemplates/gallery-list-item.html';
 import menuItemTemplate from '../../../templates/core/mustacheTemplates/main-menu-list-item.html';
 
@@ -31,7 +31,7 @@ const buildGalleryMenu = function (galleries) {
 const buildMainMenu = function (menuItems) {
     var text = Mustache.render(menuItemTemplate, { obj: menuItems.sort((a, b) => (a.rank > b.rank) ? 1 : -1) });
     $('.menu').append(text);
-    buildGalleryListListeners();
+    buildNavigationListeners();
 };
 // menuItems = prepareMenuItems(menuItems);
 //

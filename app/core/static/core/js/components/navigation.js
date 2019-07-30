@@ -26,7 +26,7 @@ export function buildGalleryListListeners () {
         var self = $(this);
         $('body').addClass('menu-running');
         setTimeout(function () {
-            $('.gallery-index').removeClass('open');
+            $('.galleries-index').removeClass('open');
         }, 300);
         setTimeout(function () {
             $('#fullwidth-video').fadeOut();
