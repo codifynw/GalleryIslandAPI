@@ -2,6 +2,7 @@
 import { buildGalleryListListeners, buildNavigationListeners } from './components/navigation';
 import galleryLITemplate from '../../../templates/core/mustacheTemplates/gallery-list-item.html';
 import menuItemTemplate from '../../../templates/core/mustacheTemplates/main-menu-list-item.html';
+import pageTemplate from '../../../templates/core/mustacheTemplates/page-targets.html';
 
 export const initMainMenu = function () {
     $.ajax({
@@ -23,16 +24,24 @@ export const initGalleryMenu = function () {
 };
 
 const buildGalleryMenu = function (galleries) {
-    var text = Mustache.render(galleryLITemplate, { gallery: galleries });
+    const text = Mustache.render(galleryLITemplate, { gallery: galleries });
     $('.gallery-list').append(text);
     buildGalleryListListeners();
 };
 
 const buildMainMenu = function (menuItems) {
-    var text = Mustache.render(menuItemTemplate, { obj: menuItems.sort((a, b) => (a.rank > b.rank) ? 1 : -1) });
+    buildMenuTargets(menuItems);
+    const text = Mustache.render(menuItemTemplate, { obj: menuItems.sort((a, b) => (a.rank > b.rank) ? 1 : -1) });
     $('.menu').append(text);
     buildNavigationListeners();
 };
+
+const buildMenuTargets = function (menuItems) {
+    console.log('menuItems',menuItems);
+    const text = Mustache.render(pageTemplate, { obj: menuItems });
+    console.log('text',text);
+    $('#targets').append(text);
+}
 // menuItems = prepareMenuItems(menuItems);
 //
 //
