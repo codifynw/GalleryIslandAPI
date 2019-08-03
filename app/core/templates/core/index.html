@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     {% include "core/partials/head.html" %}
-    {% include "core/partials/landing-animation.html" %}
     <body class="home">
+        {% include "core/partials/landing-animation.html" %}
         {% include "core/partials/body-constants.html" %}
-        {% block content %}
-        <div id="gallery-target"></div>
+        <!-- <div id="gallery-target"></div> -->
         <div class="container">
-            {% include "core/partials/container-constants.html" %}
+            <!-- {% include "core/partials/container-constants.html" %} -->
         </div>
-        {% endblock %}
     </body>
     <script>
         GI.entryPage = 'home';

@@ -1,5 +1,5 @@
 
-.LandingAnimation {
+.landing-animation {
     top: 0px;
     left: 0px;
     opacity: 1;
@@ -14,7 +14,7 @@
     /* background-color: rgba(0,0,0); */
 }
 
-.LandingAnimation .top-half {
+.landing-animation .top-half {
     position: absolute;
     width: 100%;
     color: white;
@@ -27,7 +27,7 @@
     background-image: url("https://galleryisland.s3-us-west-2.amazonaws.com/static/manual/videoOverlayTop.png");
 }
 
-.LandingAnimation .bottom-half {
+.landing-animation .bottom-half {
     position: absolute;
     bottom: 0px;
     width: 100%;
@@ -41,15 +41,15 @@
     background-image: url("https://galleryisland.s3-us-west-2.amazonaws.com/static/manual/videoOverlayBottom.png");
 }
 
-.LandingAnimation.open .top-half {
+.landing-animation.open .top-half {
     transform: translateY(-100vh);
 }
 
-.LandingAnimation.open .bottom-half {
+.landing-animation.open .bottom-half {
     transform: translateY(100vh);
 }
 
-.LandingAnimation .logo-img {
+.landing-animation .logo-img {
     height: 500px;
     opacity: 1;
     background-size: contain;
@@ -59,28 +59,28 @@
 }
 
 
-.LandingAnimation.loaded .logo-img {
+.landing-animation.loaded .logo-img {
     transform: translateY(0px);
 }
 
-.LandingAnimation .index-joker-text-block {
+.landing-animation .index-joker-text-block {
     opacity: 1;
     transition: opacity 1.6s cubic-bezier(.25, .1, .25, 1);
 }
 
-.LandingAnimation .index-joker-text-block .text,
-.LandingAnimation .index-joker-text-block h1 {
+.landing-animation .index-joker-text-block .text,
+.landing-animation .index-joker-text-block h1 {
     transform: translateY(0);
     transition: transform 1.6s cubic-bezier(.25, .1, .25, 1);
 }
 
-.LandingAnimation.loaded .index-joker-text-block {
+.landing-animation.loaded .index-joker-text-block {
     transition-delay: .8s;
     opacity: 0;
 }
 
-.LandingAnimation.loaded .index-joker-text-block .text,
-.LandingAnimation.loaded .index-joker-text-block h1 {
+.landing-animation.loaded .index-joker-text-block .text,
+.landing-animation.loaded .index-joker-text-block h1 {
     transition-delay: 1s;
     transform: translateY(30px);
 }
