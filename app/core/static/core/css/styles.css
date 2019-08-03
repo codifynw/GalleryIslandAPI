@@ -162,6 +162,8 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     overflow-x: hidden;
     position: absolute;
     margin-left: -100%;
+    padding-top: 10%;
+    padding-bottom: 10%;
     transition: all .3s;
 }
 .galleries-index::-webkit-scrollbar { width: 0 !important }

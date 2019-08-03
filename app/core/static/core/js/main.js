@@ -2,7 +2,7 @@
 import { updatePage, buildNavigationListeners } from './components/navigation';
 import './the-css.js';
 import { runLandingPageAnimation } from './animations';
-import * as builders from './constructors.js';
+import * as constructors from './constructors.js';
 
 window.initCore = function () {
     if (GI.activePage) {
@@ -13,12 +13,7 @@ window.initCore = function () {
         runLandingPageAnimation();
     }
 
-    builders.initMainMenu();
-    builders.initGalleryMenu();
-
-    $('.modal-close').click(function () {
-        $('.modal').fadeOut();
-    });
-
-    buildNavigationListeners();
+    constructors.initMainMenu()
+        .then(constructors.initGalleryMenu)
+        .then(buildNavigationListeners);
 };

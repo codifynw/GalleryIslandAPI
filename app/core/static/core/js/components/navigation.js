@@ -1,8 +1,6 @@
 /* global $, BASE_URL, GI */
 import { initXScroll } from '../gallery.js';
 
-GI.hamburger = $('#hamburger-icon');
-
 export function navigateTo (pageString) {
 }
 
@@ -61,7 +59,9 @@ export function buildGalleryListListeners () {
                     $('.modal').fadeIn();
                     $('.modal').attr('data-id', $(this).attr('data-id'));
                 });
-
+                $('.modal-close').click(function () {
+                    $('.modal').fadeOut();
+                });
                 $('.modal-next-arrow').click(function () {
                     const currentID = $('.modal').attr('data-id');
                     const currentIndex = photoIDs.indexOf(currentID);
@@ -103,6 +103,9 @@ export function returnHome () {
 }
 
 export function buildNavigationListeners () {
+    console.log('build nav listeners');
+    GI.hamburger = $('#hamburger-icon');
+    console.log('GI.hamburger:',GI.hamburger);
     $('.menu-item').click(function () {
         if ($('body').hasClass('gallery-view')) {
             returnHome();
@@ -130,8 +133,9 @@ export function buildNavigationListeners () {
         $('.' + $(this).attr('data-target')).addClass('open');
     });
 
-    GI.hamburger.click(function () {
-        GI.hamburger.toggleClass('active');
+    $(GI.hamburger).off().on('click', function () {
+        console.log('toggle the class');
+        $(GI.hamburger).toggleClass('active');
         return false;
     });
 }

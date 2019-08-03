@@ -5,12 +5,30 @@ import menuItemTemplate from '../../../templates/core/mustacheTemplates/main-men
 import pageTemplate from '../../../templates/core/mustacheTemplates/page-targets.html';
 
 export const initMainMenu = function () {
-    $.ajax({
-        url: BASE_URL + 'api/menu-item/'
-    }).done(function (response) {
-        GI.menu = response;
-        console.log(GI.menu);
-        buildMainMenu(GI.menu);
+    // $.ajax({
+    //     url:
+    // }).done(function (response) {
+    //     GI.menu = response;
+    //     buildMainMenu(GI.menu);
+    //     return true;
+    // });
+
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: BASE_URL + 'api/menu-item/',
+            // type: 'POST',
+            // data: {
+            //     key: 'value'
+            // },
+            success: function (data) {
+                GI.menu = data;
+                buildMainMenu(GI.menu);
+                resolve(data);
+            },
+            error: function (data) {
+                reject(data);
+            }
+        });
     });
 };
 
@@ -25,7 +43,7 @@ export const initGalleryMenu = function () {
 
 const buildGalleryMenu = function (galleries) {
     const text = Mustache.render(galleryLITemplate, { gallery: galleries });
-    $('.gallery-list').append(text);
+    $('.galleries-index').append(text);
     buildGalleryListListeners();
 };
 
@@ -33,15 +51,17 @@ const buildMainMenu = function (menuItems) {
     buildMenuTargets(menuItems);
     const text = Mustache.render(menuItemTemplate, { obj: menuItems.sort((a, b) => (a.rank > b.rank) ? 1 : -1) });
     $('.menu').append(text);
-    buildNavigationListeners();
+    // console.log('above build nav listeners');
+    // buildNavigationListeners();
+    // BUILD NAV LISTENERS
 };
 
 const buildMenuTargets = function (menuItems) {
-    console.log('menuItems',menuItems);
+    console.log('menuItems', menuItems);
     const text = Mustache.render(pageTemplate, { obj: menuItems });
-    console.log('text',text);
+    console.log('text', text);
     $('#targets').append(text);
-}
+};
 // menuItems = prepareMenuItems(menuItems);
 //
 //

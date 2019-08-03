@@ -1,13 +1,14 @@
-#gallery-target {
+.galleries-index {
     top: 0px;
     left: 0px;
     width: 100%;
     z-index: -1;
     display: none;
     overflow: auto;
-    /* min-height: 100vh; */
+    padding-top: 10%;
     text-align: right;
     margin-right: 60px;
+    padding-bottom: 10%;
 }
 .gallery-container {
     /* margin-top: 20%; */
