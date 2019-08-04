@@ -8,17 +8,18 @@ export function navigateTo (pageString) {
 export function updatePage (newPage) {
     GI.activePage = newPage;
     switch (GI.activePage) {
-    case 'gallery':
+    case 'gallery-MU':
         $('body').removeClass('home');
         initXScroll();
         break;
     case 'home':
         $('body').addClass('home');
         break;
-    case 'masonry-gallery':
+    case 'gallery-MA':
         initMasonryGrid();
         break;
     default:
+        console.log(GI.activePage);
         console.log('add page to nav in js');
     }
 }
@@ -87,7 +88,9 @@ export function buildGalleryListListeners () {
                         $('.modal').attr('data-id', photoIDs[prevIndex]);
                     }
                 });
-                updatePage('gallery');
+                console.log('response:')
+                console.log(response);
+                updatePage('gallery-' + self.attr('data-type'));
             });
         });
         window.history.pushState({}, 'Test Title', 'gallery/' + self.attr('data-slug'));

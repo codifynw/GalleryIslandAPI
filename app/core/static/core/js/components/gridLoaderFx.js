@@ -13,7 +13,7 @@ import anime from '../vendor/anime';
 /**
  * GridLoaderFx obj.
  */
-function GridLoaderFx (el, options) {
+export function GridLoaderFx (el, options) {
     this.el = el;
     this.items = this.el.querySelectorAll('.grid__item > .grid__link');
 }
@@ -557,5 +557,3 @@ function applyFx (ev) {
         loaders[currentGrid]._render(ev.target.getAttribute('data-fx'));
     }, 500);
 }
-
-export { GridLoaderFx as default };

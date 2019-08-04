@@ -6,15 +6,12 @@ import * as GridLoader from './components/gridLoaderFX';
 // make Masonry a jQuery plugin
 jQueryBridget('masonry', Masonry, $);
 
-console.log('we need anime')
-console.log(anime);
-
 var body = null;
 var grids = null;
 var masonry = [];
 var currentGrid = 0;
 // Switch grid radio buttons.
-var switchGridCtrls = []
+var switchGridCtrls = [];
 // Choose effect buttons.
 var fxCtrls = [];
 // The GridLoaderFx instances.
@@ -46,7 +43,7 @@ export default function initMasonryGrid () {
             // Hide the grid.
             grid.classList.add('grid--hidden');
             // Init GridLoaderFx.
-            loaders.push(new GridLoaderFx(grid));
+            loaders.push(new GridLoader.GridLoaderFx(grid));
         });
 
         // Show current grid.
@@ -55,6 +52,32 @@ export default function initMasonryGrid () {
         GridLoader.initEvents();
         // Remove loading class from body
         body.removeClass('loading');
-        loaders[0]._render('Shu')
+        loaders[0]._render('Shu');
+        if (GI.isMobile) {
+            applyOpacityHandler(loaders[0]);
+        }
+    });
+}
+
+function applyOpacityHandler (loader) {
+    console.log(loader);
+
+    $(window).scroll(function () {
+        var scrollTop = $(this).scrollTop();
+        console.log(scrollTop);
+
+        for (const item of loader.items) {
+            const elementOffset = $(item).offset().top;
+            const distance = (elementOffset - scrollTop);
+            console.log(elementOffset);
+            console.log(distance);
+
+            $(item).css({
+                opacity: function () {
+                    var elementHeight = $(this).height();
+                    return 1 - (elementHeight - scrollTop) / elementHeight;
+                }
+            });
+        }
     });
 }

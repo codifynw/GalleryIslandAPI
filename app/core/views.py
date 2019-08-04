@@ -42,12 +42,11 @@ def gallery(request,slug):
     cover_photo = Photo.objects.get(title=gallery.cover_photo)
     photos = gallery.photo_set.all()
 
-    return render(request, 'core/masonry-gallery.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo, 'BASE_URL':settings.BASE_URL})
-    # return render(request, 'core/gallery.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo, 'BASE_URL':settings.BASE_URL})
+    return render(request, 'core/gallery.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo, 'BASE_URL':settings.BASE_URL})
 
 def gallery_content(request,slug):
     gallery = get_object_or_404(Gallery, slug=slug)
     cover_photo = Photo.objects.get(title=gallery.cover_photo)
     photos = gallery.photo_set.all()
 
-    return render(request, 'core/partials/gallery-content.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo})
+    return render(request, 'core/handlers/gallery-content-handler.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo})

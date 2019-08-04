@@ -1,0 +1,7 @@
+{% if gallery.type == 'MA' %}
+    {% include "core/partials/masonry-gallery-content.html" %}
+{% elif gallery.type == 'MU' %}
+    {% include "core/partials/museum-gallery-content.html" %}
+{% else %}
+    {% include "core/partials/masonry-gallery-content.html" %}
+{% endif %}

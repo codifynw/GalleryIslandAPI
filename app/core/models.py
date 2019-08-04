@@ -12,6 +12,18 @@ class Gallery(models.Model):
     cover_photo = models.ForeignKey('Photo', on_delete=models.CASCADE, default=None, null=True)
     visible = models.BooleanField(default=True)
 
+    MASONRY = 'MA'
+    MUSEUM = 'MU'
+    GALLERY_TYPE_CHOICES = [
+        (MASONRY, 'Masonry'),
+        (MUSEUM, 'Museum'),
+    ]
+    type = models.CharField(
+        max_length=2,
+        choices=GALLERY_TYPE_CHOICES,
+        default=MASONRY,
+    )
+
     def __str__(self):
         return self.title
     class Meta:
