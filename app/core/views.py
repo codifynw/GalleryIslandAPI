@@ -16,6 +16,7 @@ def image_upload(request):
         return render(request, 'upload.html', {
             'image_url': image_url
         })
+
     return render(request, 'upload.html')
 
 def index(request):
@@ -33,15 +34,16 @@ def photo_detail(request,slug):
         prev_photo = Photo.get_previous_by_date(photo, visible=True)
     except:
         prev_photo = Photo.objects.filter(visible=True).order_by('-uploaded_at')[0]
-    galleries = photo.galleries.all()
-    return render(request, 'core/photo_detail.html', {'photo': photo, 'galleries': galleries})
+
+    return render(request, 'core/photo_detail.html', {'photo': photo})
 
 def gallery(request,slug):
     gallery = get_object_or_404(Gallery, slug=slug)
     cover_photo = Photo.objects.get(title=gallery.cover_photo)
     photos = gallery.photo_set.all()
 
-    return render(request, 'core/gallery.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo, 'BASE_URL':settings.BASE_URL})
+    return render(request, 'core/masonry-gallery.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo, 'BASE_URL':settings.BASE_URL})
+    # return render(request, 'core/gallery.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo, 'BASE_URL':settings.BASE_URL})
 
 def gallery_content(request,slug):
     gallery = get_object_or_404(Gallery, slug=slug)

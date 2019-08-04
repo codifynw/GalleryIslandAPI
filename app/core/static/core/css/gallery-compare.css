@@ -58,7 +58,7 @@ body.gallery-view .logo-container {
     background-repeat: no-repeat;
 }
 
-#gallery-photos {
+.gallery-photos {
     overflow-x: scroll;
     white-space: nowrap;
     padding: 100px 0 200px;

@@ -1,5 +1,6 @@
 /* global $, BASE_URL, GI */
 import { initXScroll } from '../gallery.js';
+import initMasonryGrid from '../masonry-gallery.js';
 
 export function navigateTo (pageString) {
 }
@@ -14,7 +15,10 @@ export function updatePage (newPage) {
     case 'home':
         $('body').addClass('home');
         break;
+    case 'masonry-gallery':
+        initMasonryGrid();
     default:
+        console.log('add page to nav in js');
     }
 }
 

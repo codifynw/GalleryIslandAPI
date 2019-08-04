@@ -1,15 +1,15 @@
 
 <div class="bg-curtain"></div>
+<div class="menu"></div>
+
 
 <div id="gallery-target">
     {% if load_gallery %}
         {% include "core/partials/gallery-content.html" %}
+    {% elif load_masonry_gallery %}
+        {% include "core/partials/masonry-gallery-content.html" %}
     {% endif %}
 </div>
-
-<div class="menu">
-</div>
-
 
  <a id="hamburger-icon" href="#" title="Menu">
    <span class="line line-1"></span>

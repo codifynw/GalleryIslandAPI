@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "core/partials/head.html" %}
+    <body class="gallery-view">
+        {% include "core/partials/body-constants.html" with load_masonry_gallery=True %}
+        {% block content %}
+        <div class="container">
+            {% include "core/partials/container-constants.html" %}
+        </div>
+        {% endblock %}
+    </body>
+    <script>
+        $('#fullwidth-video').hide();
+        $('#gallery-target').fadeIn();
+        GI.activePage = 'masonry-gallery';
+        GI.isLandingPage = false;
+        $(document).ready(function(){
+            console.log('document ready');
+            initCore();
+        });
+        console.log('bottom of script');
+    </script>
+</html>

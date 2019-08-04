@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+// const imagesLoaded = require('imagesloaded');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // const CircularDependencyPlugin = require('circular-dependency-plugin')
@@ -63,9 +64,11 @@ module.exports = {
     plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
+            anime: 'animejs',
             jQuery: 'jquery',
             jquery: 'jquery',
-            Mustache: 'mustache'
+            Mustache: 'mustache',
+            imagesloaded: 'imagesloaded'
         })
         // new BundleAnalyzerPlugin()
     ]
