@@ -10,6 +10,7 @@ export function updatePage (newPage) {
     switch (GI.activePage) {
     case 'gallery-MU':
         $('body').removeClass('home');
+        console.log('init X Scroll in nav')
         initXScroll();
         break;
     case 'home':
@@ -88,8 +89,6 @@ export function buildGalleryListListeners () {
                         $('.modal').attr('data-id', photoIDs[prevIndex]);
                     }
                 });
-                console.log('response:')
-                console.log(response);
                 updatePage('gallery-' + self.attr('data-type'));
             });
         });

@@ -60,8 +60,6 @@ export default function initMasonryGrid () {
 }
 
 function applyOpacityHandler (loader) {
-    console.log(loader);
-
     $(window).scroll(function () {
         var scrollTop = $(this).scrollTop();
         console.log(scrollTop);
@@ -69,8 +67,8 @@ function applyOpacityHandler (loader) {
         for (const item of loader.items) {
             const elementOffset = $(item).offset().top;
             const distance = (elementOffset - scrollTop);
-            console.log(elementOffset);
-            console.log(distance);
+            // console.log(elementOffset);
+            // console.log(distance);
 
             $(item).css({
                 opacity: function () {
