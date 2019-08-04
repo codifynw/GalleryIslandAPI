@@ -1,8 +1,8 @@
 /* global $, GI */
 import { updatePage, buildNavigationListeners } from './components/navigation';
+import { runLandingPageAnimation } from './components/animations';
+import * as constructors from './components/constructors.js';
 import './the-css.js';
-import { runLandingPageAnimation } from './animations';
-import * as constructors from './constructors.js';
 
 window.initCore = function () {
     if (GI.activePage) {

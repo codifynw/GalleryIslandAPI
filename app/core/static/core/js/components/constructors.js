@@ -1,8 +1,8 @@
 /* global $, Mustache, BASE_URL, GI */
-import { buildGalleryListListeners, buildNavigationListeners } from './components/navigation';
-import galleryLITemplate from '../../../templates/core/mustacheTemplates/gallery-list-item.html';
-import menuItemTemplate from '../../../templates/core/mustacheTemplates/main-menu-list-item.html';
-import pageTemplate from '../../../templates/core/mustacheTemplates/page-targets.html';
+import { buildGalleryListListeners, buildNavigationListeners } from './navigation';
+import galleryLITemplate from '../../../../templates/core/mustacheTemplates/gallery-list-item.html';
+import menuItemTemplate from '../../../../templates/core/mustacheTemplates/main-menu-list-item.html';
+import pageTemplate from '../../../../templates/core/mustacheTemplates/page-targets.html';
 
 export const initMainMenu = function () {
     // $.ajax({
