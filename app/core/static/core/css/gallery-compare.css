@@ -2,12 +2,6 @@ body.gallery-view {
 
 }
 
-body.gallery-view #hamburger-icon {
-    position: absolute;
-    top: 60px;
-    left: 100px;
-}
-
 body.gallery-view .logo-container {
     z-index: 100;
     color: white;
@@ -32,10 +26,10 @@ body.gallery-view .logo-container {
     /* margin-top: 20%; */
     /* margin-right: 20%; */
 }
-
+/*
 #gallery-target img {
     max-width: 50%;
-}
+} */
 
 .gallery-title {
     top: 60px;

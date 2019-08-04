@@ -6,6 +6,9 @@ import * as GridLoader from './components/gridLoaderFX';
 // make Masonry a jQuery plugin
 jQueryBridget('masonry', Masonry, $);
 
+console.log('we need anime')
+console.log(anime);
+
 var body = null;
 var grids = null;
 var masonry = [];
@@ -52,5 +55,6 @@ export default function initMasonryGrid () {
         GridLoader.initEvents();
         // Remove loading class from body
         body.removeClass('loading');
+        loaders[0]._render('Shu')
     });
 }

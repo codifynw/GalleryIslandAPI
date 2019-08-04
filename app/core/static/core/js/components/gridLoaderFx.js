@@ -1,3 +1,4 @@
+import anime from '../vendor/anime';
 /**
 * main.js
 * http://www.codrops.com
@@ -385,8 +386,6 @@ GridLoaderFx.prototype.effects = {
 GridLoaderFx.prototype._render = function (effect) {
     // Reset styles.
     this._resetStyles();
-
-    var self = this;
     var effectSettings = this.effects[effect];
     var animeOpts = effectSettings.animeOpts;
 

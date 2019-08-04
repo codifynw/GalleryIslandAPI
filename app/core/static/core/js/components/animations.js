@@ -16,8 +16,6 @@ export function runLandingPageAnimation () {
     // tl.call(video.play, null, video, 8);
     // tl.call(video.playVideo(), null, video, 8);
     setTimeout(function () {
-        console.log('need to play the video please');
-        console.log(video);
         video.play();
     }, 3000);
 }

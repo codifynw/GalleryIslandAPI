@@ -64,7 +64,6 @@ module.exports = {
     plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
-            anime: 'animejs',
             jQuery: 'jquery',
             jquery: 'jquery',
             Mustache: 'mustache',

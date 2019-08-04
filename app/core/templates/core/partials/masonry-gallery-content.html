@@ -1,10 +1,11 @@
 {% block content %}
-    <h2 class='gallery-title'>{{ gallery.title }} Masonry</h2>
+    <h2 class='gallery-title'>{{ gallery.title }}</h2>
     <div class="gallery-container">
         <div class="bg-gradient"></div>
         <div class="gallery-bg"
             style="background-image: url('https://galleryisland.s3-us-west-2.amazonaws.com/media/miles/{{cover_photo.file}}')">
         </div>
+        <div class="masonry-spacer"></div>
             <div class="masonry-gallery-photos grid">
                 <div class="grid__sizer"></div>
                 {% for photo in photos %}

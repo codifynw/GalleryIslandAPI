@@ -4,6 +4,12 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+body.gallery-view #hamburger-icon {
+    position: fixed;
+    top: 60px;
+    left: 100px;
+}
+
 /* BG Video */
 #fullwidth-video{
     top: 0px;

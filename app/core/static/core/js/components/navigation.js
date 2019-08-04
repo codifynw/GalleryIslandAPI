@@ -17,6 +17,7 @@ export function updatePage (newPage) {
         break;
     case 'masonry-gallery':
         initMasonryGrid();
+        break;
     default:
         console.log('add page to nav in js');
     }
@@ -107,9 +108,7 @@ export function returnHome () {
 }
 
 export function buildNavigationListeners () {
-    console.log('build nav listeners');
     GI.hamburger = $('#hamburger-icon');
-    console.log('GI.hamburger:',GI.hamburger);
     $('.menu-item').click(function () {
         if ($('body').hasClass('gallery-view')) {
             returnHome();
@@ -138,7 +137,6 @@ export function buildNavigationListeners () {
     });
 
     $(GI.hamburger).off().on('click', function () {
-        console.log('toggle the class');
         $(GI.hamburger).toggleClass('active');
         return false;
     });
