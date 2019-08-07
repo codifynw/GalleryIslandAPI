@@ -7,7 +7,7 @@ from slugger import AutoSlugField
 
 class Gallery(models.Model):
     title = models.CharField(max_length=30)
-    slug = AutoSlugField(populate_from='title', default="needs-slug")
+    slug = AutoSlugField(populate_from='title', default="needs-slug", unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default = 1)
     cover_photo = models.ForeignKey('Photo', on_delete=models.CASCADE, default=None, null=True)
     visible = models.BooleanField(default=True)
@@ -37,8 +37,9 @@ class Photo(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=50, default="Untitled")
     file = models.FileField(storage=PublicMediaStorage(), default="")
-    slug = AutoSlugField(populate_from='title', default="needs-slug")
+    slug = AutoSlugField(populate_from='title', default="needs-slug", unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default = 1)
+    date_taken = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
        return self.title
@@ -58,3 +59,8 @@ class MenuItem(models.Model):
 
     def __str__(self):
        return self.name
+
+class Catalog(models.Model):
+    rank = models.IntegerField(default=50, unique=True)
+    photo = models.ForeignKey(Photo, on_delete=models.CASCADE)
+    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE)
