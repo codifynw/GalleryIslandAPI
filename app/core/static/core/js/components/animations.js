@@ -5,11 +5,13 @@ import TweenLite from 'gsap/TweenLite';
 export function runLandingPageAnimation () {
     const $text = $('.landing-text');
     const $bg = $('.landing-animation');
+    const $logo = $('.landing-logo');
     const video = document.getElementById('bg-banner-video');
 
     var tl = new TimelineLite();
     tl.to($text, 1, { opacity: 0, delay: 3.5 });
     tl.to($bg, 2, { backgroundColor: 'rgba(0,0,0,0)' });
+    tl.to($logo, 2, { opacity: 0 }, 3.5);
     tl.to($bg, 0, { display: 'none' }, 5.5);
 
     // Both fail
@@ -18,4 +20,9 @@ export function runLandingPageAnimation () {
     setTimeout(function () {
         video.play();
     }, 3000);
+}
+
+export function animateDrawerOut () {
+    console.log('animate the drawer out');
+    $('body').addClass('drawer-out');
 }

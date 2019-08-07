@@ -1,6 +1,7 @@
 /* global $, BASE_URL, GI */
 import { initXScroll } from '../gallery.js';
 import initMasonryGrid from '../masonry-gallery.js';
+import { animateDrawerOut } from '../components/animations.js';
 
 export function navigateTo (pageString) {
 }
@@ -10,7 +11,6 @@ export function updatePage (newPage) {
     switch (GI.activePage) {
     case 'gallery-MU':
         $('body').removeClass('home');
-        console.log('init X Scroll in nav')
         initXScroll();
         break;
     case 'home':
@@ -139,7 +139,14 @@ export function buildNavigationListeners () {
     });
 
     $(GI.hamburger).off().on('click', function () {
+        console.log('clicked hamburger');
         $(GI.hamburger).toggleClass('active');
+        initSideMenu();
         return false;
     });
+}
+
+function initSideMenu () {
+    console.log('clicked hamburger - in the initDrawer');
+    animateDrawerOut($('body'))
 }
