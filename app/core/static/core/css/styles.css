@@ -8,6 +8,7 @@ body.gallery-view #hamburger-icon {
     position: fixed;
     top: 60px;
     left: 100px;
+    z-index: 500;
 }
 
 body .top-container {
@@ -274,7 +275,14 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
 
 /* DRAWER */
 #drawer {
+    width: 100%;
+    z-index: 200;
     color: white;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    background-color: #252525;
+    transform: translateX(-100%);
 }
 
 #drawer .drawer-item {

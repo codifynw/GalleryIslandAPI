@@ -41,6 +41,7 @@
     "eslint": "^6.1.0",
     "html-loader": "^0.5.5",
     "postcss-loader": "^3.0.0",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.6"
   }
 }

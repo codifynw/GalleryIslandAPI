@@ -1,7 +1,8 @@
 /* global $, BASE_URL, GI */
 import { initXScroll } from '../gallery.js';
 import initMasonryGrid from '../masonry-gallery.js';
-import { animateDrawerOut } from '../components/animations.js';
+// import { activateDrawer } from '../components/animations.js';
+import drawer from './drawer';
 
 export function navigateTo (pageString) {
 }
@@ -148,5 +149,5 @@ export function buildNavigationListeners () {
 
 function initSideMenu () {
     console.log('clicked hamburger - in the initDrawer');
-    animateDrawerOut($('body'))
+    drawer.activateDrawer();
 }

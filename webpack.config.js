@@ -1,12 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // const imagesLoaded = require('imagesloaded');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 // const CircularDependencyPlugin = require('circular-dependency-plugin')
 // const core_path = path.resolve(__dirname, './../../../source_framework/static/js/modules/');
 // const module_path = path.resolve(__dirname, './../../../source_framework/static/js/source/');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     // mode: 'development',
@@ -68,7 +67,7 @@ module.exports = {
             jquery: 'jquery',
             Mustache: 'mustache',
             imagesloaded: 'imagesloaded'
-        })
+        }),
         // new BundleAnalyzerPlugin()
     ]
     // devServer: {
