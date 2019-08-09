@@ -140,14 +140,24 @@ export function buildNavigationListeners () {
     });
 
     $(GI.hamburger).off().on('click', function () {
-        console.log('clicked hamburger');
+        const active = $(this).hasClass('active');
+        console.log(active);
+
+        if (active) {
+            closeSlideMenu();
+        } else {
+            initSideMenu();
+        }
+
         $(GI.hamburger).toggleClass('active');
-        initSideMenu();
         return false;
     });
 }
 
 function initSideMenu () {
-    console.log('clicked hamburger - in the initDrawer');
     drawer.activateDrawer();
+}
+
+function closeSlideMenu () {
+    drawer.deactivateDrawer();
 }

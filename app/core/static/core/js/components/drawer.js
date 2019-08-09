@@ -27,14 +27,33 @@ const drawer = {
         });
     },
 
+    hideMenuItem (el) {
+        TweenMax.to(el.el, 1, {
+            opacity: 0,
+            ease: 'Power2.easeOut',
+            delay: el.delay
+        });
+        TweenMax.fromTo(el.el, 1, {
+            transform: 'translateX(50%)',
+            ease: 'Power4.easeOut',
+            delay: el.delay
+        }, {
+            transform: 'translateX(0%)'
+        });
+    },
+
     activateDrawer () {
         this.activateDrawerTranslate();
         this.activateDrawerMenuItems();
     },
 
+    deactivateDrawer () {
+        this.deactivateDrawerTranslate();
+        this.deactivateDrawerMenuItems();
+    },
+
     activateDrawerMenuItems () {
         const self = this;
-        console.log('activate the drawer menu items');
         // const menuTL = new TimelineLite();
         // menuTL.to();
 
@@ -51,11 +70,24 @@ const drawer = {
         show();
     },
 
-    activateDrawerTranslate () {
+    deactivateDrawerMenuItems () {
         const self = this;
 
-        console.log('adding tween to:')
-        console.log(self.drawer);
+        const hide = function () {
+            for (var i = 0; i < self.drawerMenuItems.length; i++) {
+                // drawerMenuItems[i].style.display = 'block';
+                self.hideMenuItem({
+                    el: self.drawerMenuItems[i],
+                    delay: i * 0.055
+                });
+            }
+        };
+
+        hide();
+    },
+
+    activateDrawerTranslate () {
+        const self = this;
 
         TweenMax.killTweensOf(self.drawer);
         TweenMax.fromTo(self.drawer, 0.4, {
@@ -66,11 +98,14 @@ const drawer = {
         });
     },
 
-    deactivateDrawer (elms) {
-        TweenMax.killTweensOf(elms);
-        TweenMax.to(elms, 1, {
-            x: 0,
-            y: 0,
+    deactivateDrawerTranslate () {
+        const self = this;
+
+        TweenMax.killTweensOf(self.drawer);
+        TweenMax.fromTo(self.drawer, 0.4, {
+            transform: 'translateX(0%)'
+        }, {
+            transform: 'translateX(-100%)',
             ease: 'Power4.easeOut'
         });
     }
