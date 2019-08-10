@@ -19,9 +19,9 @@ const drawer = {
             delay: el.delay
         });
         TweenMax.fromTo(el.el, 1, {
-            transform: 'translateX(0%)'
+            transform: 'translateX(-50%)'
         }, {
-            transform: 'translateX(50%)',
+            transform: 'translateX(0%)',
             ease: 'Power4.easeOut',
             delay: el.delay
         });
@@ -43,8 +43,11 @@ const drawer = {
     },
 
     activateDrawer () {
-        this.activateDrawerTranslate();
-        this.activateDrawerMenuItems();
+        const self = this;
+        self.activateDrawerTranslate();
+        setTimeout(function () {
+            self.activateDrawerMenuItems();
+        }, 150);
     },
 
     deactivateDrawer () {
@@ -90,11 +93,11 @@ const drawer = {
         const self = this;
 
         TweenMax.killTweensOf(self.drawer);
-        TweenMax.fromTo(self.drawer, 0.4, {
+        TweenMax.fromTo(self.drawer, 1.2, {
             transform: 'translateX(-100%)'
         }, {
             transform: 'translateX(0%)',
-            ease: 'Power4.easeOut'
+            ease: 'Expo.easeOut'
         });
     },
 
@@ -102,11 +105,11 @@ const drawer = {
         const self = this;
 
         TweenMax.killTweensOf(self.drawer);
-        TweenMax.fromTo(self.drawer, 0.4, {
+        TweenMax.fromTo(self.drawer, 1, {
             transform: 'translateX(0%)'
         }, {
             transform: 'translateX(-100%)',
-            ease: 'Power4.easeOut'
+            ease: 'Expo.easeOut'
         });
     }
 };
@@ -115,4 +118,4 @@ $(document).ready(function () {
     drawer.init();
 });
 
-export {drawer as default};
+export { drawer as default };
