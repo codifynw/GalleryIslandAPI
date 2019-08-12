@@ -5,7 +5,6 @@ import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
 const drawer = {
     // METHODS
     init () {
-        console.log('it is inited');
         this.drawer = $('#drawer');
         this.drawerMenuItems = $('.drawer-item');
     },

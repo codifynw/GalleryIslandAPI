@@ -31,7 +31,6 @@ export default function initMasonryGrid () {
     loaders = [];
     // Preload images
     imagesloaded(body, function () {
-        console.log('images loaded');
         // Initialize Masonry on each grid.
         grids.forEach(function (grid) {
             var m = new Masonry(grid, {

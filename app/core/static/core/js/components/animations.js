@@ -21,3 +21,17 @@ export function runLandingPageAnimation () {
         video.play();
     }, 3000);
 }
+
+export function animateHomeToGallery () {
+    $('body').addClass('menu-running');
+    setTimeout(function () {
+        $('.galleries-index').removeClass('open');
+    }, 300);
+    setTimeout(function () {
+        $('#fullwidth-video').fadeOut();
+        $('#gallery-target').show();
+    }, 800);
+    setTimeout(function () {
+        $('body').removeClass('menu-running');
+    }, 2000);
+}

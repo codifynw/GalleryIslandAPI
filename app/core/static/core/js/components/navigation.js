@@ -1,14 +1,11 @@
 /* global $, BASE_URL, GI */
 import { initXScroll } from '../gallery.js';
 import initMasonryGrid from '../masonry-gallery.js';
-// import { activateDrawer } from '../components/animations.js';
+import { animateHomeToGallery } from '../components/animations.js';
 import drawer from './drawer';
 
-export function navigateTo (pageString) {
-}
-
-export function updatePage (newPage) {
-    GI.activePage = newPage;
+export function navigateTo (newPageString) {
+    GI.activePage = newPageString;
     switch (GI.activePage) {
     case 'gallery-MU':
         filterClass($('body'), 'view-*', 'view-gallery');
@@ -16,8 +13,9 @@ export function updatePage (newPage) {
         initXScroll();
         break;
     case 'home':
+        returnHome();
         filterClass($('body'), 'view-*', 'view-home');
-        $('body').addClass('home');
+        window.history.pushState({}, 'Home', '/');
         break;
     case 'gallery-MA':
         filterClass($('body'), 'view-*', 'view-gallery');
@@ -33,67 +31,16 @@ export function buildGalleryListListeners () {
     // This executes when clicking on a gallery from the gallery index list.
     $('.gallery-link').off().on('click', function () {
         var self = $(this);
-        $('body').addClass('menu-running');
-        setTimeout(function () {
-            $('.galleries-index').removeClass('open');
-        }, 300);
-        setTimeout(function () {
-            $('#fullwidth-video').fadeOut();
-            $('#gallery-target').show();
-        }, 800);
-        setTimeout(function () {
-            $('body').removeClass('menu-running');
-        }, 2000);
-
-        function loadGallery (data, callback) {
-            setTimeout(function () {
-                $('#gallery-target').html('');
-                $('#gallery-target').html(data);
-                $('#gallery-target').fadeIn();
-                callback();
-            }, 300);
-            $('body').addClass('view-gallery');
-        }
+        animateHomeToGallery();
 
         $.ajax({
             url: BASE_URL + 'gallery-content/' + self.attr('data-slug')
         }).done(function (response) {
             loadGallery(response, function () {
-                var photoIDs = [];
-                photoIDs = $.map($('.photo-row-photo'), function (n, i) {
+                $.map($('.photo-row-photo'), function (n, i) {
                     return $(n).attr('data-id');
                 });
-
-                $('.photo-row-photo').click(function () {
-                    const bgProperty = $(this).css('background-image');
-                    $('.modal-target').css('background-image', bgProperty);
-                    $('.modal').fadeIn();
-                    $('.modal').attr('data-id', $(this).attr('data-id'));
-                });
-                $('.modal-close').click(function () {
-                    $('.modal').fadeOut();
-                });
-                $('.modal-next-arrow').click(function () {
-                    const currentID = $('.modal').attr('data-id');
-                    const currentIndex = photoIDs.indexOf(currentID);
-                    if (currentIndex !== photoIDs.length) {
-                        const nextIndex = parseInt(currentIndex) + 1;
-                        const bgProperty = $($('.photo-row-photo')[nextIndex]).css('background-image');
-                        $('.modal-target').css('background-image', bgProperty);
-                        $('.modal').attr('data-id', photoIDs[nextIndex]);
-                    }
-                });
-                $('.modal-prev-arrow').click(function () {
-                    const currentID = $('.modal').attr('data-id');
-                    const currentIndex = photoIDs.indexOf(currentID);
-                    if (currentIndex !== 0) {
-                        const prevIndex = parseInt(currentIndex) - 1;
-                        const bgProperty = $($('.photo-row-photo')[prevIndex]).css('background-image');
-                        $('.modal-target').css('background-image', bgProperty);
-                        $('.modal').attr('data-id', photoIDs[prevIndex]);
-                    }
-                });
-                updatePage('gallery-' + self.attr('data-type'));
+                navigateTo('gallery-' + self.attr('data-type'));
             });
         });
         window.history.pushState({}, 'Test Title', 'gallery/' + self.attr('data-slug'));
@@ -106,7 +53,8 @@ export function returnHome () {
     setTimeout(function () {
         $('#gallery-target').fadeOut();
         $('#fullwidth-video').fadeIn();
-    }, 800);
+    }, 500);
+    document.getElementById('bg-banner-video').play();
     setTimeout(function () {
         $('body').removeClass('menu-running');
     }, 2000);
@@ -115,11 +63,6 @@ export function returnHome () {
 
 export function buildNavigationListeners () {
     $('.menu-item').click(function () {
-        if ($('body').hasClass('view-gallery')) {
-            returnHome();
-            $('body').removeClass('view-gallery');
-        }
-
         $('.link-target').removeClass('open');
         $('.menu-item').removeClass('active');
         // $('.link-to-gallery').addClass('active');
@@ -129,22 +72,11 @@ export function buildNavigationListeners () {
 
     $('.logo-container').click(function () {
         navigateTo('home');
-        if ($('body').hasClass('view-gallery')) {
-            returnHome();
-            $('body').removeClass('view-gallery');
-        }
-
-        $('.link-target').removeClass('open');
         $('.menu-item').removeClass('active');
-        // $('.link-to-gallery').addClass('active');
-        $(this).addClass('active');
-        $('.' + $(this).attr('data-target')).addClass('open');
     });
 
     $(GI.hamburger).off().on('click', function () {
-        const active = $(this).hasClass('active');
-
-        if (active) {
+        if ($(this).hasClass('active')) {
             drawer.deactivateDrawer();
         } else {
             drawer.activateDrawer();
@@ -154,6 +86,15 @@ export function buildNavigationListeners () {
         return false;
     });
 }
+
+const loadGallery = function (data, callback) {
+    setTimeout(function () {
+        $('#gallery-target').html('');
+        $('#gallery-target').html(data);
+        $('#gallery-target').fadeIn();
+        callback();
+    }, 300);
+};
 
 const filterClass = function (element, removals, additions) {
     if (removals.indexOf('*') === -1) {
@@ -179,3 +120,34 @@ const filterClass = function (element, removals, additions) {
 
     return !additions ? element : element.addClass(additions);
 };
+
+// Modal Stuff
+// $('.photo-row-photo').click(function () {
+//     const bgProperty = $(this).css('background-image');
+//     $('.modal-target').css('background-image', bgProperty);
+//     $('.modal').fadeIn();
+//     $('.modal').attr('data-id', $(this).attr('data-id'));
+// });
+// $('.modal-close').click(function () {
+//     $('.modal').fadeOut();
+// });
+// $('.modal-next-arrow').click(function () {
+//     const currentID = $('.modal').attr('data-id');
+//     const currentIndex = photoIDs.indexOf(currentID);
+//     if (currentIndex !== photoIDs.length) {
+//         const nextIndex = parseInt(currentIndex) + 1;
+//         const bgProperty = $($('.photo-row-photo')[nextIndex]).css('background-image');
+//         $('.modal-target').css('background-image', bgProperty);
+//         $('.modal').attr('data-id', photoIDs[nextIndex]);
+//     }
+// });
+// $('.modal-prev-arrow').click(function () {
+//     const currentID = $('.modal').attr('data-id');
+//     const currentIndex = photoIDs.indexOf(currentID);
+//     if (currentIndex !== 0) {
+//         const prevIndex = parseInt(currentIndex) - 1;
+//         const bgProperty = $($('.photo-row-photo')[prevIndex]).css('background-image');
+//         $('.modal-target').css('background-image', bgProperty);
+//         $('.modal').attr('data-id', photoIDs[prevIndex]);
+//     }
+// });
