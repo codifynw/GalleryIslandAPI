@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     {% include "core/partials/head.html" %}
-    <body>
-        {% include "core/partials/body-constants.html" with load_masonry_gallery=True %}
-        {% block content %}
-        <div class="container">
-            {% include "core/partials/container-constants.html" %}
-        </div>
-        {% endblock %}
+    <body class="home-target">
+
+            {% include "core/partials/body-constants.html" with load_masonry_gallery=True %}
+            <div class="container">
+                {% include "core/partials/container-constants.html" %}
+            </div>
+
     </body>
     <script>
         $('#fullwidth-video').hide();

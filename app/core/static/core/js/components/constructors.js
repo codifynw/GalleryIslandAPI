@@ -33,7 +33,7 @@ export const initGalleryMenu = function () {
 
 const buildGalleryMenu = function (galleries) {
     const text = Mustache.render(galleryLITemplate, { gallery: galleries });
-    $('.galleries-index').append(text);
+    $('.galleries-target').append(text);
     buildGalleryListListeners();
 };
 

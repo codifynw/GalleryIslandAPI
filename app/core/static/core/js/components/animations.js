@@ -26,7 +26,7 @@ export function runLandingPageAnimation () {
 export function animateHomeToGallery () {
     $('body').addClass('menu-running');
     setTimeout(function () {
-        $('.galleries-index').removeClass('open');
+        $('.galleries-target').removeClass('open');
     }, 300);
     setTimeout(function () {
         $('#fullwidth-video').fadeOut();

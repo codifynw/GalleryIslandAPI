@@ -67,7 +67,6 @@ export function buildNavigationListeners () {
     $('.menu-item').click(function () {
         $('.link-target').removeClass('open');
         $('.menu-item').removeClass('active');
-        // $('.link-to-gallery').addClass('active');
         $(this).addClass('active');
         $('.' + $(this).attr('data-target')).addClass('open');
     });

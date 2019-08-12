@@ -102,12 +102,14 @@ const drawer = {
     deactivateDrawerTranslate () {
         const self = this;
 
-        TweenMax.killTweensOf(self.drawer);
         TweenMax.fromTo(self.drawer, 1, {
             transform: 'translateX(0%)'
         }, {
             transform: 'translateX(-100%)',
-            ease: 'Expo.easeOut'
+            ease: 'Expo.easeOut',
+            onComplete: function () {
+            },
+            clearProps: 'transform'
         });
     }
 };
