@@ -12,7 +12,6 @@ export const initMainMenu = function () {
             success: function (data) {
                 GI.menu = data;
                 buildMainMenu(GI.menu);
-                buildDrawerMenu(GI.menu);
                 resolve(data);
             },
             error: function (data) {
@@ -41,11 +40,6 @@ const buildMainMenu = function (menuItems) {
     buildMenuTargets(menuItems);
     const text = Mustache.render(menuItemTemplate, { obj: menuItems.sort((a, b) => (a.rank > b.rank) ? 1 : -1) });
     $('.menu').append(text);
-};
-
-const buildDrawerMenu = function (menuItems) {
-    const text = Mustache.render(drawerItemTemplate, { obj: menuItems.sort((a, b) => (a.rank > b.rank) ? 1 : -1) });
-    $('.drawer-items').append(text);
 };
 
 const buildMenuTargets = function (menuItems) {

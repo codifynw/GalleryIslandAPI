@@ -1,13 +1,21 @@
-/* global $ */
+/* global $, Mustache, GI */
 // import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
 import { TweenMax } from 'gsap/TweenMax';
+import drawerItemTemplate from '../../../../templates/core/mustacheTemplates/drawer-list-item.html';
 // import TweenLite from 'gsap/TweenLite';
 
 const drawer = {
     // METHODS
     init () {
-        this.drawer = $('#drawer');
-        this.drawerMenuItems = $('.drawer-item');
+        const self = this;
+        self.drawer = $('#drawer');
+        self.drawerMenuItems = $('.drawer-item');
+        self.buildDrawerMenu(GI.menu);
+    },
+
+    buildDrawerMenu (menuItems) {
+        const text = Mustache.render(drawerItemTemplate, { obj: menuItems.sort((a, b) => (a.rank > b.rank) ? 1 : -1) });
+        $('.drawer-items').append(text);
     },
 
     showMenuItem (el) {
