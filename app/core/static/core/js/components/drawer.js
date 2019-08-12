@@ -93,7 +93,7 @@ const drawer = {
         const self = this;
 
         TweenMax.killTweensOf(self.drawer);
-        TweenMax.fromTo(self.drawer, 1.2, {
+        TweenMax.fromTo(self.drawer, 0.8, {
             transform: 'translateX(-100%)'
         }, {
             transform: 'translateX(0%)',

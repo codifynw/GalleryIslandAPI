@@ -5,3 +5,4 @@ import '../css/gallery-compare.css';
 import '../css/gallery-masonry.css';
 import '../css/components/hamburger.css';
 import '../css/landing.css';
+import '../css/media-queries.css';

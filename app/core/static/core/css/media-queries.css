@@ -1,0 +1,25 @@
+@media (max-width: 767px) {
+    .menu {
+        display: none;
+    }
+
+    .logo-container {
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%);
+    }
+}
+
+
+
+@media (max-width: 2000px) {
+    body.gallery-view #hamburger-icon {
+        top: 36px;
+        left: 36px;
+    }
+
+    .gallery-view .gallery-title {
+        right: 36px;
+        top: 36px;
+    }
+}

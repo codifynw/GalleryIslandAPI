@@ -127,11 +127,13 @@ const _activateMenu = function () {
     var e = this;
     this.el.classList.add('menuActive');
     TweenMax.killTweensOf(this.el);
+    // Black to white text
     TweenMax.to(this.el, 2, {
         color: 'white',
         ease: 'Power2.easeOut'
     });
     TweenMax.killTweensOf(this._ui.projectsBar);
+    // Underline Bar under Text
     TweenMax.to(this._ui.projectsBar, 1, {
         scaleX: 0.65,
         ease: 'Power4.easeOut'

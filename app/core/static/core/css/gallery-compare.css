@@ -3,11 +3,11 @@ body.gallery-view {
 }
 
 body.gallery-view .logo-container {
+    top: 0px;
+    left: 50%;
     z-index: 100;
     color: white;
     position: fixed;
-    top: 20px;
-    left: 50%;
     transform: translate(-50%);
 }
 
@@ -32,8 +32,8 @@ body.gallery-view .logo-container {
 } */
 
 .gallery-title {
-    top: 60px;
-    right: 100px;
+    top: 36px;
+    right: 36px;
     color: white;
     position: fixed;
     font-weight: 300;
