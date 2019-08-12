@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "core/partials/head.html" %}
+    <body class="gallery-view">
+        {% include "core/partials/body-constants.html" %}
+        <div class="container">
+            <h1>About</h1>
+            {% include "core/partials/container-constants.html" %}
+        </div>
+    </body>
+    <script>
+        $('#fullwidth-video').hide();
+        GI.activePage = 'about';
+        GI.isLandingPage = false;
+        $(document).ready(function(){
+            initCore();
+        });
+    </script>
+</html>

@@ -21,7 +21,7 @@
 .masonry-spacer {
     display: block;
     position: relative;
-    height: 250px;
+    height: 200px;
     pointer-events: none;
 }
 

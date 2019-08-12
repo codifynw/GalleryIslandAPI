@@ -44,6 +44,9 @@ def gallery(request,slug):
 
     return render(request, 'core/gallery.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo, 'BASE_URL':settings.BASE_URL})
 
+def about(request):
+    return render(request, 'core/about.html', {'BASE_URL':settings.BASE_URL})
+
 def gallery_content(request,slug):
     gallery = get_object_or_404(Gallery, slug=slug)
     cover_photo = Photo.objects.get(title=gallery.cover_photo)
