@@ -62,6 +62,8 @@ export function returnHome () {
 }
 
 export function buildNavigationListeners () {
+    drawer.init();
+
     $('.menu-item').click(function () {
         $('.link-target').removeClass('open');
         $('.menu-item').removeClass('active');

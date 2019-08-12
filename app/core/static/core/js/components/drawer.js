@@ -1,5 +1,6 @@
-/* global $, GI */
-import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
+/* global $ */
+// import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
+import { TweenMax } from 'gsap/TweenMax';
 // import TweenLite from 'gsap/TweenLite';
 
 const drawer = {
@@ -110,9 +111,5 @@ const drawer = {
         });
     }
 };
-
-$(document).ready(function () {
-    drawer.init();
-});
 
 export { drawer as default };

@@ -1,6 +1,7 @@
-/* global $, GI */
-import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
-import TweenLite from 'gsap/TweenLite';
+/* global $ */
+// import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
+import { TimelineLite } from 'gsap/TweenMax';
+// import TweenLite from 'gsap/TweenLite';
 
 export function runLandingPageAnimation () {
     const $text = $('.landing-text');
