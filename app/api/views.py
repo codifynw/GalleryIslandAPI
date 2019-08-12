@@ -30,7 +30,7 @@ class GalleryViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
-    queryset = Gallery.objects.all()
+    queryset = Gallery.objects.all().filter(visible=True)
     serializer_class = GallerySerializer
 
 class MenuItemViewSet(viewsets.ModelViewSet):
