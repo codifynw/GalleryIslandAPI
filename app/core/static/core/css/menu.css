@@ -1,4 +1,4 @@
-body.gallery-view  .menu {
+body.view-gallery  .menu {
     display: none;
 }
 
@@ -65,20 +65,20 @@ body.gallery-view  .menu {
     transform: translateX(0);
 }
 
-body.gallery-view .menu .menu-item {
+body.view-gallery .menu .menu-item {
     font-size: 0rem;
 }
 
-body.gallery-view .menu:hover .menu-item {
+body.view-gallery .menu:hover .menu-item {
     font-size: 1.2rem;
 }
 
-body.gallery-view .menu-item.active {
+body.view-gallery .menu-item.active {
     -webkit-transform: translateX(-2rem);
     transform: translateX(-2rem);
 }
 
-body.gallery-view .menu:hover .menu-item.active {
+body.view-gallery .menu:hover .menu-item.active {
     -webkit-transform: translateX(0rem);
     transform: translateX(0rem);
 }

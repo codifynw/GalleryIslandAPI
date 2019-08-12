@@ -13,12 +13,12 @@
 
 
 @media (max-width: 2000px) {
-    body.gallery-view #hamburger-icon {
+    body.view-gallery #hamburger-icon {
         top: 36px;
         left: 36px;
     }
 
-    .gallery-view .gallery-title {
+    .view-gallery .gallery-title {
         right: 36px;
         top: 36px;
     }

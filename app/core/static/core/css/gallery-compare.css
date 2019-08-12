@@ -1,8 +1,8 @@
-body.gallery-view {
+body.view-gallery {
 
 }
 
-body.gallery-view .logo-container {
+body.view-gallery .logo-container {
     top: 0px;
     left: 50%;
     z-index: 100;

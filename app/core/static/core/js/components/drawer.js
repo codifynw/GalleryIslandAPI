@@ -2,8 +2,6 @@
 import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
 // import TweenLite from 'gsap/TweenLite';
 
-console.log('init drawer');
-
 const drawer = {
     // METHODS
     init () {

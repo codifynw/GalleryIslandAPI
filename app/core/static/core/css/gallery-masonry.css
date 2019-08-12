@@ -1,8 +1,8 @@
 .masonry-gallery-photos {
-    max-width: calc(100vw - 260px);
+    max-width: calc(100% - 60px);
 }
 
-@media screen and (max-width: 960px) {
+/* @media screen and (max-width: 960px) {
 	.masonry-gallery-photos {
         max-width: calc(100vw - 80px);
 	}
@@ -11,7 +11,7 @@
 	.masonry-gallery-photos {
         max-width: calc(100vw - 30px);
 	}
-}
+} */
 
 
 

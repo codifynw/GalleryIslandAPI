@@ -4,7 +4,7 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-body.gallery-view #hamburger-icon {
+body.view-gallery #hamburger-icon {
     position: fixed;
     top: 36px;
     left: 36px;
@@ -285,7 +285,7 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     transform: translateX(-100%);
 }
 
-#drawer .items {
+#drawer .drawer-items {
     position: absolute;
     left: 50%;
     text-align: center;
@@ -301,6 +301,7 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     position: relative;
     white-space: nowrap;
     letter-spacing: 10px;
+    text-transform: uppercase;
     color: rgba(255,255,255,.65);
 }
 

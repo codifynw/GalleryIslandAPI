@@ -5,6 +5,8 @@ import * as constructors from './components/constructors.js';
 import './the-css.js';
 
 window.initCore = function () {
+    // define some globals:
+    GI.hamburger = $('#hamburger-icon');
     GI.isMobile = window.matchMedia('only screen and (max-width: 760px)').matches;
 
     if (GI.activePage) {

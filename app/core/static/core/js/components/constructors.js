@@ -2,6 +2,7 @@
 import { buildGalleryListListeners, buildNavigationListeners } from './navigation';
 import galleryLITemplate from '../../../../templates/core/mustacheTemplates/gallery-list-item.html';
 import menuItemTemplate from '../../../../templates/core/mustacheTemplates/main-menu-list-item.html';
+import drawerItemTemplate from '../../../../templates/core/mustacheTemplates/drawer-list-item.html';
 import pageTemplate from '../../../../templates/core/mustacheTemplates/page-targets.html';
 
 export const initMainMenu = function () {
@@ -11,6 +12,7 @@ export const initMainMenu = function () {
             success: function (data) {
                 GI.menu = data;
                 buildMainMenu(GI.menu);
+                buildDrawerMenu(GI.menu);
                 resolve(data);
             },
             error: function (data) {
@@ -41,10 +43,16 @@ const buildMainMenu = function (menuItems) {
     $('.menu').append(text);
 };
 
+const buildDrawerMenu = function (menuItems) {
+    const text = Mustache.render(drawerItemTemplate, { obj: menuItems.sort((a, b) => (a.rank > b.rank) ? 1 : -1) });
+    $('.drawer-items').append(text);
+};
+
 const buildMenuTargets = function (menuItems) {
     const text = Mustache.render(pageTemplate, { obj: menuItems });
     $('#targets').append(text);
 };
+
 // menuItems = prepareMenuItems(menuItems);
 //
 //
