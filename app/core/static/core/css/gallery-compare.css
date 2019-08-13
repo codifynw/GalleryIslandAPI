@@ -17,8 +17,6 @@ body.view-gallery .logo-container {
     width: 100%;
     z-index: -1;
     display: none;
-    overflow: auto;
-    /* min-height: 100vh; */
     text-align: right;
     margin-right: 60px;
 }

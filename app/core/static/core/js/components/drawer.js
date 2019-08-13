@@ -9,8 +9,8 @@ const drawer = {
     init () {
         const self = this;
         self.drawer = $('#drawer');
-        self.drawerMenuItems = $('.drawer-item');
         self.buildDrawerMenu(GI.menu);
+        self.drawerMenuItems = $('.drawer-item');
     },
 
     buildDrawerMenu (menuItems) {

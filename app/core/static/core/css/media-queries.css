@@ -6,6 +6,7 @@
     .logo-container {
         position: fixed;
         left: 50%;
+        top: -25px;
         transform: translate(-50%);
     }
 }
