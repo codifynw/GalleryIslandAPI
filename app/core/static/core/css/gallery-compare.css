@@ -35,6 +35,7 @@ body.view-gallery .logo-container {
     color: white;
     position: fixed;
     font-weight: 300;
+    font-size: 1.5em;
     text-align: right;
     letter-spacing: .25em;
 }

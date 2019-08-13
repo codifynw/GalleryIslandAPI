@@ -9,7 +9,7 @@ export function runLandingPageAnimation () {
     const $logo = $('.landing-logo');
     const video = document.getElementById('bg-banner-video');
 
-    var tl = new TimelineLite();
+    var tl = new TimelineLite().timeScale( 0.7 );
     tl.to($text, 1, { opacity: 0, delay: 3.5 });
     tl.to($bg, 2, { backgroundColor: 'rgba(0,0,0,0)' });
     tl.to($logo, 2, { opacity: 0 }, '-=3');
@@ -20,7 +20,7 @@ export function runLandingPageAnimation () {
     // tl.call(video.playVideo(), null, video, 8);
     setTimeout(function () {
         video.play();
-    }, 3000);
+    }, 4500);
 }
 
 export function animateHomeToGallery () {

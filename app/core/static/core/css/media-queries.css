@@ -9,6 +9,12 @@
         top: -25px;
         transform: translate(-50%);
     }
+
+
+    body.view-gallery .logo-container {
+        display: none;
+    }
+
 }
 
 

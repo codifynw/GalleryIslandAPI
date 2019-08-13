@@ -54,7 +54,7 @@ export default function initMasonryGrid () {
         body.removeClass('loading');
         loaders[0]._render('Shu');
         if (GI.isMobile) {
-            applyOpacityHandler(loaders[0]);
+            // applyOpacityHandler(loaders[0]);
         }
     });
 }
