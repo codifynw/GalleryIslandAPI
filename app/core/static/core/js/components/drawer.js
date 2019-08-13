@@ -2,6 +2,7 @@
 // import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
 import { TweenMax } from 'gsap/TweenMax';
 import drawerItemTemplate from '../../../../templates/core/mustacheTemplates/drawer-list-item.html';
+import { navigateTo } from './navigation';
 // import TweenLite from 'gsap/TweenLite';
 
 const drawer = {
@@ -14,8 +15,26 @@ const drawer = {
     },
 
     buildDrawerMenu (menuItems) {
+        const self = this;
         const text = Mustache.render(drawerItemTemplate, { obj: menuItems.sort((a, b) => (a.rank > b.rank) ? 1 : -1) });
         $('.drawer-items').append(text);
+        self.buildDrawerMenuListeners();
+    },
+
+    buildDrawerMenuListeners () {
+        const self = this;
+        $('.drawer-item').click(function () {
+            // $('.link-target').removeClass('open');
+            // $('.menu-item').removeClass('active');
+            // $(this).addClass('active');
+            // $('.' + $(this).attr('data-target')).addClass('open');
+            console.log('clicked');
+            console.log(this);
+            GI.hamburger.removeClass('active');
+            self.deactivateDrawerMenuItems();
+            self.deactivateDrawerTranslate();
+            navigateTo($(this).attr('data-target'))
+        });
     },
 
     showMenuItem (el) {

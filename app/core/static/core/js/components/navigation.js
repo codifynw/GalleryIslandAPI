@@ -17,6 +17,11 @@ export function navigateTo (newPageString) {
         filterClass($('body'), 'view-*', 'view-home');
         window.history.pushState({}, 'Home', '/');
         break;
+    case 'home-target':
+        returnHome();
+        filterClass($('body'), 'view-*', 'view-home');
+        window.history.pushState({}, 'Home', '/');
+        break;
     case 'gallery-MA':
         filterClass($('body'), 'view-*', 'view-gallery');
         initMasonryGrid();

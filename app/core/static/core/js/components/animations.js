@@ -20,7 +20,7 @@ export function runLandingPageAnimation () {
     // tl.call(video.playVideo(), null, video, 8);
     setTimeout(function () {
         video.play();
-    }, 4500);
+    }, 3000);
 }
 
 export function animateHomeToGallery () {

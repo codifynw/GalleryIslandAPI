@@ -2,7 +2,6 @@
 import { buildGalleryListListeners, buildNavigationListeners } from './navigation';
 import galleryLITemplate from '../../../../templates/core/mustacheTemplates/gallery-list-item.html';
 import menuItemTemplate from '../../../../templates/core/mustacheTemplates/main-menu-list-item.html';
-import drawerItemTemplate from '../../../../templates/core/mustacheTemplates/drawer-list-item.html';
 import pageTemplate from '../../../../templates/core/mustacheTemplates/page-targets.html';
 
 export const initMainMenu = function () {
