@@ -48,7 +48,7 @@ export function buildGalleryListListeners () {
                 navigateTo('gallery-' + self.attr('data-type'));
             });
         });
-        window.history.pushState({}, 'Test Title', 'gallery/' + self.attr('data-slug'));
+        window.history.pushState({ navTo: 'gallery' }, 'Test Title', 'gallery/' + self.attr('data-slug'));
     });
 }
 

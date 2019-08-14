@@ -20,4 +20,13 @@ window.initCore = function () {
     constructors.initMainMenu()
         .then(constructors.initGalleryMenu)
         .then(buildNavigationListeners);
+
+    // Push initial state
+    window.history.pushState({ navTo: 'gallery' }, 'Test Title', 'gallery/' + self.attr('data-slug'));
+
+
+    // handle back buttons
+    window.onpopstate = function (event) {
+        console.log('location: ' + document.location + ', state: ' + JSON.stringify(event.state));
+    };
 };
