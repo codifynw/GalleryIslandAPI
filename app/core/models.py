@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from app.storage_backends import PublicMediaStorage
+from tinymce.models import HTMLField
 from slugger import AutoSlugField
-
 
 class Gallery(models.Model):
     title = models.CharField(max_length=30)
@@ -29,7 +29,6 @@ class Gallery(models.Model):
     class Meta:
         verbose_name_plural = "Galleries"
 
-
 class Photo(models.Model):
     caption = models.TextField(default="")
     visible = models.BooleanField(default=True)
@@ -44,10 +43,10 @@ class Photo(models.Model):
     def __str__(self):
        return self.title
 
-
-class DashboardSetting(models.Model):
+class Setting(models.Model):
     background = models.ForeignKey(Photo, null=True, on_delete=models.DO_NOTHING)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default = 1)
+    aboutContent = HTMLField()
 
     def __str__(self):
        return self.user.username + ' settings'
