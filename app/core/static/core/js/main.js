@@ -22,7 +22,7 @@ window.initCore = function () {
         .then(buildNavigationListeners);
 
     // Push initial state
-    window.history.pushState({ navTo: 'gallery' }, 'Test Title', 'gallery/' + self.attr('data-slug'));
+    window.history.pushState({ navTo: '/' }, 'Test Title', '/');
 
 
     // handle back buttons

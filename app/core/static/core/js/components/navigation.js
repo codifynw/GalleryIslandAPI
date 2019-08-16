@@ -1,6 +1,7 @@
 /* global $, BASE_URL, GI */
 import { initXScroll } from '../gallery.js';
 import initMasonryGrid from '../masonry-gallery.js';
+import initAbout from '../about.js';
 import { animateHomeToGallery } from '../components/animations.js';
 import drawer from './drawer';
 
@@ -25,6 +26,10 @@ export function navigateTo (newPageString) {
     case 'gallery-MA':
         filterClass($('body'), 'view-*', 'view-gallery');
         initMasonryGrid();
+        break;
+    case 'about':
+        filterClass($('body'), 'view-*', 'view-about');
+        initAbout();
         break;
     default:
         console.log(GI.activePage);
