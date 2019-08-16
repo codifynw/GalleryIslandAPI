@@ -2,14 +2,7 @@ body.view-gallery {
 
 }
 
-body.view-gallery .logo-container {
-    top: 0px;
-    left: 50%;
-    z-index: 100;
-    color: white;
-    position: fixed;
-    transform: translate(-50%);
-}
+
 
 #gallery-target {
     top: 0px;
@@ -31,6 +24,7 @@ body.view-gallery .logo-container {
 
 .gallery-title {
     top: 36px;
+    z-index: 6;
     right: 36px;
     color: white;
     position: fixed;

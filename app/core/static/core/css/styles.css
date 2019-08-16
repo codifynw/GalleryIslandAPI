@@ -23,6 +23,17 @@ body.view-gallery #hamburger-icon {
 body.view-gallery .logo-container .logo-text {
     display: none;
 }
+body.view-gallery .logo-container {
+    top: 10px;
+    left: 50%;
+    z-index: 100;
+    color: white;
+    position: fixed;
+    transform: translate(-50%);
+}
+body.view-gallery .logo-container .logo-img {
+    background-size: 200%;
+}
 
 body .top-container {
     position: relative;
@@ -35,6 +46,18 @@ body.menu-active {
     overflow: hidden;
     max-height: 60vh;
 }
+
+/* Header */
+#stickyHeader {
+    z-index: 5;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: #252525;
+}
+
+
 
 /* BG Video */
 #fullwidth-video{

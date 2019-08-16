@@ -2,6 +2,7 @@
 import { navigateTo, buildNavigationListeners } from './components/navigation';
 import { runLandingPageAnimation } from './components/animations';
 import * as constructors from './components/constructors.js';
+import initStickyHeader from './components/header'
 import './the-css.js';
 
 window.initCore = function () {
@@ -18,11 +19,12 @@ window.initCore = function () {
     }
 
     constructors.initMainMenu()
+        .then(initStickyHeader)
         .then(constructors.initGalleryMenu)
         .then(buildNavigationListeners);
 
     // Push initial state
-    window.history.pushState({ navTo: '/' }, 'Test Title', '/');
+    // window.history.pushState({ navTo: '/' }, 'Test Title', '/');
 
 
     // handle back buttons

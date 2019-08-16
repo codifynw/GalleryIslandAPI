@@ -1,6 +1,7 @@
 /* global $ */
-// import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
-import { TimelineLite } from 'gsap/TweenMax';
+import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
+// import { TweenMax } from 'gsap/TweenMax';
+// import { TimelineLite } from 'gsap/TweenMax';
 // import TweenLite from 'gsap/TweenLite';
 
 export function runLandingPageAnimation () {
@@ -35,4 +36,17 @@ export function animateHomeToGallery () {
     setTimeout(function () {
         $('body').removeClass('menu-running');
     }, 2000);
+}
+
+export function expandStickyHeader (header) {
+    if ($(window).width() > 767) {
+        // $(header).
+        TweenMax.to(header, '.7', {
+            height: '120px'
+        });
+    } else {
+        TweenMax.to(header, '.7', {
+            height: '100px'
+        });
+    }
 }
