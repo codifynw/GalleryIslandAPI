@@ -1,5 +1,5 @@
 /* global $, GI */
-import { navigateTo, buildNavigationListeners } from './components/navigation';
+import { Controller, buildNavigationListeners } from './components/navigation';
 import { runLandingPageAnimation } from './components/animations';
 import * as constructors from './components/constructors.js';
 import initStickyHeader from './components/header'
@@ -10,9 +10,12 @@ window.initCore = function () {
     GI.hamburger = $('#hamburger-icon');
     GI.isMobile = window.matchMedia('only screen and (max-width: 760px)').matches;
     GI.header = document.getElementById('stickyHeader');
+    GI.Controller = new Controller();
+
+    console.log(GI.Controller);
 
     if (GI.activePage) {
-        navigateTo(GI.activePage);
+        GI.Controller.navigateTo(GI.activePage);
     }
 
     if (GI.isLandingPage) {

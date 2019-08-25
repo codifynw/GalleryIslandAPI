@@ -2,42 +2,48 @@
 import { initXScroll } from '../gallery.js';
 import initMasonryGrid from '../masonry-gallery.js';
 import initAbout from '../about.js';
-import { animateHomeToGallery } from '../components/animations.js';
+import { animateHomeToGallery, buildCurtainAnimation } from '../components/animations.js';
 import drawer from './drawer';
 
-export function navigateTo (newPageString) {
-    console.log('this is the page string:');
-    console.log(newPageString);
-    GI.activePage = newPageString;
-    switch (GI.activePage) {
-    case 'gallery-MU':
-        filterClass($('body'), 'view-*', 'view-gallery');
-        $('body').removeClass('home');
-        initXScroll();
-        break;
-    case 'home':
-        returnHome();
-        filterClass($('body'), 'view-*', 'view-home');
-        window.history.pushState({}, 'Home', '/');
-        break;
-    case 'home-target':
-        returnHome();
-        filterClass($('body'), 'view-*', 'view-home');
-        window.history.pushState({}, 'Home', '/');
-        break;
-    case 'gallery-MA':
-        filterClass($('body'), 'view-*', 'view-gallery');
-        initMasonryGrid();
-        break;
-    case 'about-target':
-        filterClass($('body'), 'view-*', 'view-about');
-        initAbout();
-        break;
-    default:
-        console.log(GI.activePage);
-        console.log('add page to nav in js');
+export class Controller {
+    constructor () {
+        this.curtain = $('#curtain');
+        this.curtainAnimation = buildCurtainAnimation();
+    }
+
+    navigateTo (newPageString) {
+        GI.activePage = newPageString;
+        switch (GI.activePage) {
+        case 'gallery-MU':
+            filterClass($('body'), 'view-*', 'view-gallery');
+            $('body').removeClass('home');
+            initXScroll();
+            break;
+        case 'home':
+            returnHome();
+            filterClass($('body'), 'view-*', 'view-home');
+            window.history.pushState({}, 'Home', '/');
+            break;
+        case 'home-target':
+            returnHome();
+            filterClass($('body'), 'view-*', 'view-home');
+            window.history.pushState({}, 'Home', '/');
+            break;
+        case 'gallery-MA':
+            filterClass($('body'), 'view-*', 'view-gallery');
+            initMasonryGrid();
+            break;
+        case 'about-target':
+            filterClass($('body'), 'view-*', 'view-about');
+            initAbout();
+            break;
+        default:
+            console.log(GI.activePage);
+            console.log('add page to nav in js');
+        }
     }
 }
+
 
 export function buildGalleryListListeners () {
     // This executes when clicking on a gallery from the gallery index list.
@@ -52,7 +58,7 @@ export function buildGalleryListListeners () {
                 $.map($('.photo-row-photo'), function (n, i) {
                     return $(n).attr('data-id');
                 });
-                navigateTo('gallery-' + self.attr('data-type'));
+                GI.Controller.navigateTo('gallery-' + self.attr('data-type'));
             });
         });
         window.history.pushState({ navTo: 'gallery' }, 'Test Title', 'gallery/' + self.attr('data-slug'));
@@ -75,6 +81,7 @@ export function returnHome () {
 
 export function buildNavigationListeners () {
     drawer.init();
+    buildCurtainAnimation();
 
     $('.menu-item').click(function () {
         $('.link-target').removeClass('open');
@@ -83,12 +90,12 @@ export function buildNavigationListeners () {
         if ($(this).hasClass('parent-link')) {
             $('.' + $(this).attr('data-target')).addClass('open');
         } else {
-            navigateTo($(this).attr('data-target'));
+            GI.Controller.navigateTo($(this).attr('data-target'));
         }
     });
 
     $('.logo-container').click(function () {
-        navigateTo('home');
+        GI.Controller.navigateTo('home');
         $('.menu-item').removeClass('active');
     });
 

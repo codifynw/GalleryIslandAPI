@@ -2,7 +2,6 @@
 // import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
 import { TweenMax } from 'gsap/TweenMax';
 import drawerItemTemplate from '../../../../templates/core/mustacheTemplates/drawer-list-item.html';
-import { navigateTo } from './navigation';
 // import TweenLite from 'gsap/TweenLite';
 
 const drawer = {
@@ -33,7 +32,7 @@ const drawer = {
             GI.hamburger.removeClass('active');
             self.deactivateDrawerMenuItems();
             self.deactivateDrawerTranslate();
-            navigateTo($(this).attr('data-target'))
+            GI.Controller.navigateTo($(this).attr('data-target'))
         });
     },
 
