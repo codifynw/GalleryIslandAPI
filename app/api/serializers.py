@@ -23,13 +23,18 @@ class GallerySerializer(serializers.HyperlinkedModelSerializer):
         model = Gallery
         fields = ('id','title', 'cover_photo', 'slug', 'type')
 
+class FilterLinkListSerializer(serializers.ListSerializer):
+    def to_representation(self, data):
+        data = data.filter(visible=True)
+        return super(FilterLinkListSerializer, self).to_representation(data)
+
 class GalleryLinkSerializer(serializers.ModelSerializer):
     galleries = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = Gallery
         fields = '__all__'
-
+        list_serializer_class = FilterLinkListSerializer
 
 class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
     subGalleries = GalleryLinkSerializer(many=True, read_only=True)
