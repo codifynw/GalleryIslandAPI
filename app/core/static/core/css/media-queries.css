@@ -1,20 +1,53 @@
 @media (max-width: 767px) {
     .menu {
         display: none;
+        z-index: 1000;
     }
 
     .logo-container {
-        position: fixed;
-        left: 50%;
-        top: -25px;
-        transform: translate(-50%);
+        margin-top: 20px;
+        flex-direction: row-reverse;
     }
 
-
-    body.view-gallery .logo-container {
+    .logo-container .logo-img {
         display: none;
     }
 
+    .logo-text {
+        font-size: 20px;
+        letter-spacing: 4px;
+    }
+
+    .container {
+        margin: 0px 10px;
+    }
+
+    body.view-home #hamburger-icon {
+        display: block;
+    }
+
+    #hamburger-icon {
+        height: 20px;
+        display: block;
+    }
+
+    #hamburger-icon .line {
+        width: 24px;
+    }
+
+    #hamburger-icon.active .line-1 {
+        transform: translateY(10px) translateX(0) rotate(45deg);
+    }
+
+    #hamburger-icon.active .line-3 {
+        transform: translateY(-10px) translateX(0) rotate(-45deg);
+    }
+
+
+
+    #drawer .drawer-item {
+        padding-bottom: 15px;
+    }
 }
 
 

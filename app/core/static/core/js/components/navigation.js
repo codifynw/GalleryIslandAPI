@@ -12,11 +12,12 @@ export class Controller {
     }
 
     navigateTo (newPageString) {
+        const self = this;
         GI.activePage = newPageString;
         switch (GI.activePage) {
         case 'gallery-MU':
+            self.curtainAnimation.invalidate().restart();
             filterClass($('body'), 'view-*', 'view-gallery');
-            $('body').removeClass('home');
             initXScroll();
             break;
         case 'home':
@@ -30,6 +31,7 @@ export class Controller {
             window.history.pushState({}, 'Home', '/');
             break;
         case 'gallery-MA':
+            self.curtainAnimation.invalidate().restart();
             filterClass($('body'), 'view-*', 'view-gallery');
             initMasonryGrid();
             break;
@@ -81,7 +83,6 @@ export function returnHome () {
 
 export function buildNavigationListeners () {
     drawer.init();
-    buildCurtainAnimation();
 
     $('.menu-item').click(function () {
         $('.link-target').removeClass('open');
@@ -94,7 +95,7 @@ export function buildNavigationListeners () {
         }
     });
 
-    $('.logo-container').click(function () {
+    $('.logo-img').click(function () {
         GI.Controller.navigateTo('home');
         $('.menu-item').removeClass('active');
     });

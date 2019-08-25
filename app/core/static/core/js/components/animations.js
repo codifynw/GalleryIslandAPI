@@ -50,9 +50,8 @@ const buildCurtainAnimation = function () {
     });
     var curtain = $('#curtain');
 
-    tl.to(curtain, 1, { width: '100vh', transformOrigin: 'left', ease: 'Expo.easeOut' });
-    tl.to(curtain, 2, { opacity: 0, ease: 'Expo.easeOut' });
-    tl.to(curtain, 0, { display: 'none' });
+    tl.to(curtain, 1, { width: '100vw', transformOrigin: 'left', ease: 'Expo.easeOut' });
+    tl.to(curtain, 1, { scaleX: 0, transformOrigin: 'right', ease: 'Expo.easeOut' });
     // tl.from(img, 1, { opacity: 0 }, "reveal");
     return tl;
 };
