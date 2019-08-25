@@ -168,7 +168,7 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     height: 100px;
     opacity: .75;
     transition: opacity 1s;
-    background-size: 150%;
+    background-size: 175%;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url("https://galleryisland.s3-us-west-2.amazonaws.com/static/manual/mm_logo.png");
@@ -319,7 +319,7 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     color: white;
     height: 100vh;
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     background-color: #252525;
     transform: translateX(-100%);
 }
@@ -358,12 +358,8 @@ top:50%;left:0%;transform:translate(0%, -50%);height:auto;width:100%; } }
     width: 100%;
     left: 0;
     bottom: 30px;
-    transition: -webkit-transform .2s ease-out;
-    transition: transform .2s ease-out;
-    transition: transform .2s ease-out,-webkit-transform .2s ease-out;
-    -webkit-transform-origin: center center;
+    transition: transform .8s cubic-bezier(.8,0,0,1);
     transform-origin: center center;
-    -webkit-transform: scaleX(0);
     transform: scaleX(0);
     pointer-events: none;
 }

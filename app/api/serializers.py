@@ -23,7 +23,17 @@ class GallerySerializer(serializers.HyperlinkedModelSerializer):
         model = Gallery
         fields = ('id','title', 'cover_photo', 'slug', 'type')
 
+class GalleryLinkSerializer(serializers.ModelSerializer):
+    galleries = serializers.PrimaryKeyRelatedField(read_only=True)
+
+    class Meta:
+        model = Gallery
+        fields = '__all__'
+
+
 class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
+    subGalleries = GalleryLinkSerializer(many=True, read_only=True)
+
     class Meta:
         model = MenuItem
-        fields = ('name','url','rank')
+        fields = '__all__'

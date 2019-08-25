@@ -55,6 +55,7 @@ class MenuItem(models.Model):
     name =  models.CharField(max_length=30)
     url =  models.CharField(max_length=300)
     rank = models.IntegerField(default=9, unique=True)
+    subGalleries = models.ManyToManyField(Gallery, blank=True)
 
     def __str__(self):
        return self.name

@@ -10,6 +10,7 @@ export const initMainMenu = function () {
             url: BASE_URL + 'api/menu-item/',
             success: function (data) {
                 GI.menu = data;
+                console.log(GI.menu);
                 buildMainMenu(GI.menu);
                 resolve(data);
             },

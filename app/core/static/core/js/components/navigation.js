@@ -6,6 +6,8 @@ import { animateHomeToGallery } from '../components/animations.js';
 import drawer from './drawer';
 
 export function navigateTo (newPageString) {
+    console.log('this is the page string:');
+    console.log(newPageString);
     GI.activePage = newPageString;
     switch (GI.activePage) {
     case 'gallery-MU':
@@ -27,7 +29,7 @@ export function navigateTo (newPageString) {
         filterClass($('body'), 'view-*', 'view-gallery');
         initMasonryGrid();
         break;
-    case 'about':
+    case 'about-target':
         filterClass($('body'), 'view-*', 'view-about');
         initAbout();
         break;
@@ -78,7 +80,11 @@ export function buildNavigationListeners () {
         $('.link-target').removeClass('open');
         $('.menu-item').removeClass('active');
         $(this).addClass('active');
-        $('.' + $(this).attr('data-target')).addClass('open');
+        if (this.hasClass('index-item')) {
+            $('.' + $(this).attr('data-target')).addClass('open');
+        } else {
+            navigateTo($(this).attr('data-target'));
+        }
     });
 
     $('.logo-container').click(function () {
