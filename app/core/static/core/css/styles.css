@@ -21,6 +21,10 @@ body.view-gallery #hamburger-icon {
     z-index: 500;
 }
 
+body.view-gallery .tagline {
+    display: none;
+}
+
 body.view-gallery .logo-container .logo-img {
     top: 10px;
     left: 50%;
