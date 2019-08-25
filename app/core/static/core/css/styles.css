@@ -50,10 +50,8 @@ body.menu-active {
 /* Header */
 #stickyHeader {
     z-index: 5;
-    position: fixed;
     width: 100%;
-    top: 0px;
-    left: 0px;
+    position: fixed;
     background-color: #252525;
 }
 

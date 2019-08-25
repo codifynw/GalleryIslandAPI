@@ -9,6 +9,7 @@ window.initCore = function () {
     // define some globals:
     GI.hamburger = $('#hamburger-icon');
     GI.isMobile = window.matchMedia('only screen and (max-width: 760px)').matches;
+    GI.header = document.getElementById('stickyHeader');
 
     if (GI.activePage) {
         navigateTo(GI.activePage);

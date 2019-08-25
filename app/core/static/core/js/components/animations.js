@@ -10,11 +10,11 @@ export function runLandingPageAnimation () {
     const $logo = $('.landing-logo');
     const video = document.getElementById('bg-banner-video');
 
-    var tl = new TimelineLite().timeScale( 0.7 );
-    tl.to($text, 1, { opacity: 0, delay: 3.5 });
-    tl.to($bg, 2, { backgroundColor: 'rgba(0,0,0,0)' });
-    tl.to($logo, 2, { opacity: 0 }, '-=3');
-    tl.to($bg, 0, { display: 'none' });
+    var landingTimeLineTween = new TimelineLite().timeScale( 0.7 );
+    landingTimeLineTween.to($text, 1, { opacity: 0, delay: 3.5 });
+    landingTimeLineTween.to($bg, 2, { backgroundColor: 'rgba(0,0,0,0)' });
+    landingTimeLineTween.to($logo, 2, { opacity: 0 }, '-=3');
+    landingTimeLineTween.to($bg, 0, { display: 'none' });
 
     // Both fail
     // tl.call(video.play, null, video, 8);
@@ -38,15 +38,12 @@ export function animateHomeToGallery () {
     }, 2000);
 }
 
-export function expandStickyHeader (header) {
-    if ($(window).width() > 767) {
-        // $(header).
-        TweenMax.to(header, '.7', {
-            height: '120px'
-        });
-    } else {
-        TweenMax.to(header, '.7', {
-            height: '100px'
-        });
-    }
+let buildHeaderAnimation = function (header) {
+    let headerAnimation = TweenMax.to(header, '.4', {
+        height: '120px',
+        paused: true
+    });
+    return headerAnimation;
 }
+
+export { buildHeaderAnimation };
