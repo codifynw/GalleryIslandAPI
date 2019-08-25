@@ -80,7 +80,7 @@ export function buildNavigationListeners () {
         $('.link-target').removeClass('open');
         $('.menu-item').removeClass('active');
         $(this).addClass('active');
-        if (this.hasClass('index-item')) {
+        if ($(this).hasClass('parent-link')) {
             $('.' + $(this).attr('data-target')).addClass('open');
         } else {
             navigateTo($(this).attr('data-target'));

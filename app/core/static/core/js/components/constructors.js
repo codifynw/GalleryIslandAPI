@@ -1,5 +1,5 @@
 /* global $, Mustache, BASE_URL, GI */
-import { buildGalleryListListeners, buildNavigationListeners } from './navigation';
+import { buildGalleryListListeners } from './navigation';
 import galleryLITemplate from '../../../../templates/core/mustacheTemplates/gallery-list-item.html';
 import menuItemTemplate from '../../../../templates/core/mustacheTemplates/main-menu-list-item.html';
 import pageTemplate from '../../../../templates/core/mustacheTemplates/page-targets.html';
@@ -10,7 +10,6 @@ export const initMainMenu = function () {
             url: BASE_URL + 'api/menu-item/',
             success: function (data) {
                 GI.menu = data;
-                console.log(GI.menu);
                 buildMainMenu(GI.menu);
                 resolve(data);
             },
@@ -38,8 +37,19 @@ const buildGalleryMenu = function (galleries) {
 
 const buildMainMenu = function (menuItems) {
     buildMenuTargets(menuItems);
-    const text = Mustache.render(menuItemTemplate, { obj: menuItems.sort((a, b) => (a.rank > b.rank) ? 1 : -1) });
+    const mustacheObj = processMenuItems(menuItems);
+    const text = Mustache.render(menuItemTemplate, { obj: mustacheObj.sort((a, b) => (a.rank > b.rank) ? 1 : -1) });
     $('.menu').append(text);
+};
+
+const processMenuItems = function (menuItems) {
+    const processedItems = menuItems.map(function (menuItem) {
+        if (menuItem.subGalleries.length > 0) {
+            menuItem.customClass = 'parent-link';
+        }
+        return menuItem;
+    });
+    return processedItems;
 };
 
 const buildMenuTargets = function (menuItems) {
