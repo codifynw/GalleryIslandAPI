@@ -1,7 +1,7 @@
 import os
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
-from .models import Photo, Gallery
+from .models import Photo, Gallery, Page
 from django.conf import settings
 
 from django.shortcuts import get_object_or_404
@@ -44,11 +44,13 @@ def gallery(request,slug):
 
     return render(request, 'core/gallery.html', {'gallery': gallery, 'photos': photos, 'cover_photo':cover_photo, 'BASE_URL':settings.BASE_URL})
 
-def about(request):
-    return render(request, 'core/about.html', {'BASE_URL':settings.BASE_URL})
+# def about(request):
+#     return render(request, 'core/about.html', {'BASE_URL':settings.BASE_URL})
 
-def page(request):
-    return render(request, 'core/page.html', {'BASE_URL':settings.BASE_URL})
+def page(request,slug):
+    page = get_object_or_404(Page, slug=slug)
+    print(page)
+    return render(request, 'core/page.html', {'page': page, 'BASE_URL':settings.BASE_URL})
 
 def gallery_content(request,slug):
     gallery = get_object_or_404(Gallery, slug=slug)

@@ -4,6 +4,7 @@ import initMasonryGrid from '../masonry-gallery.js';
 import initAbout from '../about.js';
 import { animateHomeToGallery, buildCurtainAnimation } from '../components/animations.js';
 import drawer from './drawer';
+import { Page } from '../page';
 
 export class Controller {
     constructor () {
@@ -24,6 +25,13 @@ export class Controller {
             returnHome();
             filterClass($('body'), 'view-*', 'view-home');
             window.history.pushState({}, 'Home', '/');
+            break;
+        case 'page':
+            console.log(GI.pageTitle);
+            let page = new Page(GI.pageTitle);
+            console.log(page);
+            filterClass($('body'), 'view-*', 'view-home');
+            window.history.pushState({}, 'Page', '/page');
             break;
         case 'home-target':
             returnHome();

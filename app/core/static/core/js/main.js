@@ -12,7 +12,7 @@ window.initCore = function () {
     GI.header = document.getElementById('stickyHeader');
     GI.Controller = new Controller();
 
-    console.log(GI.Controller);
+    console.log(GI);
 
     if (GI.activePage) {
         GI.Controller.navigateTo(GI.activePage);

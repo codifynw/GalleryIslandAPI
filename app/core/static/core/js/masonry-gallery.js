@@ -53,29 +53,5 @@ export default function initMasonryGrid () {
         // Remove loading class from body
         body.removeClass('loading');
         loaders[0]._render('Shu');
-        if (GI.isMobile) {
-            // applyOpacityHandler(loaders[0]);
-        }
-    });
-}
-
-function applyOpacityHandler (loader) {
-    $(window).scroll(function () {
-        var scrollTop = $(this).scrollTop();
-        console.log(scrollTop);
-
-        for (const item of loader.items) {
-            const elementOffset = $(item).offset().top;
-            const distance = (elementOffset - scrollTop);
-            // console.log(elementOffset);
-            // console.log(distance);
-
-            $(item).css({
-                opacity: function () {
-                    var elementHeight = $(this).height();
-                    return 1 - (elementHeight - scrollTop) / elementHeight;
-                }
-            });
-        }
     });
 }
