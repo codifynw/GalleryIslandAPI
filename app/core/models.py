@@ -36,7 +36,7 @@ class Photo(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=50, default="Untitled")
     file = models.FileField(storage=PublicMediaStorage(), default="")
-    slug = AutoSlugField(populate_from='title', default="needs-slug", unique=True)
+    slug = AutoSlugField(populate_from='title', default="needs-slug", unique=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default = 1)
     date_taken = models.DateTimeField(blank=True, null=True)
 
@@ -50,6 +50,45 @@ class Setting(models.Model):
 
     def __str__(self):
        return self.user.username + ' settings'
+
+
+class TextField(models.Model):
+    className = models.CharField(max_length=50, default="section")
+    textContent = HTMLField()
+
+    def __str__(self):
+        return self.name
+
+class Section(models.Model):
+    name = models.CharField(max_length=128)
+    className = models.CharField(max_length=50, default="section")
+
+    def __str__(self):
+        return self.name
+
+class SplitSection(models.Model):
+    paragraph = HTMLField()
+    aboveBannerText = models.CharField(max_length=128)
+    bannerText = models.CharField(max_length=128)
+    belowBannerText = models.CharField(max_length=128)
+    pictureLink = models.FileField(storage=PublicMediaStorage(), default="")
+    customClass = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.bannerText
+
+class Page(models.Model):
+    title = models.CharField(max_length=50, default="Untitled")
+    slug = AutoSlugField(populate_from='title', unique=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+class Layout(models.Model):
+    rank = models.IntegerField(default=1000, unique=False)
+    page = models.ForeignKey(Page, on_delete=models.CASCADE, related_name='mtm', null=True, blank=True)
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name='mtm', null=True, blank=True)
+    splitSection = models.ForeignKey(SplitSection, on_delete=models.CASCADE, related_name='mtm', null=True, blank=True)
 
 class MenuItem(models.Model):
     name =  models.CharField(max_length=30)
