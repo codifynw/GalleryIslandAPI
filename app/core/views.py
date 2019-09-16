@@ -1,10 +1,13 @@
 import os
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
-from .models import Photo, Gallery, Page
+from .models import *
 from django.conf import settings
-
+from django.core import serializers
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from rest_framework import serializers
+from api.serializers import *
 
 def image_upload(request):
     if request.method == 'POST':
@@ -49,8 +52,18 @@ def gallery(request,slug):
 
 def page(request,slug):
     page = get_object_or_404(Page, slug=slug)
-    print(page)
-    return render(request, 'core/page.html', {'page': page, 'BASE_URL':settings.BASE_URL})
+    layouts = page.mtm.all()
+    layout_list = []
+
+    for layout in layouts:
+        newdict = {'rank':layout.rank}
+        if layout.section is not None:
+            print('will handle layout.section when added')
+        if layout.splitSection is not None:
+            newdict.update(SplitSectionSerializer(layout.splitSection).data)
+            layout_list.append(newdict)
+
+    return render(request, 'core/page.html', {'page': page, 'layout': layout_list, 'BASE_URL':settings.BASE_URL})
 
 def gallery_content(request,slug):
     gallery = get_object_or_404(Gallery, slug=slug)

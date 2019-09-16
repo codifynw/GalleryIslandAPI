@@ -74,9 +74,6 @@ class SplitSection(models.Model):
     pictureLink = models.FileField(storage=PublicMediaStorage(), default="")
     customClass = models.CharField(max_length=128)
 
-    def __str__(self):
-        return self.bannerText
-
 class Page(models.Model):
     title = models.CharField(max_length=50, default="Untitled")
     slug = AutoSlugField(populate_from='title', unique=True, null=True)

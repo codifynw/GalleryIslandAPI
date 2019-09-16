@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from core.models import Photo, Gallery, MenuItem
+from core.models import Photo, Gallery, MenuItem, SplitSection
 from rest_framework import serializers
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -41,4 +41,9 @@ class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = MenuItem
+        fields = '__all__'
+
+class SplitSectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SplitSection
         fields = '__all__'

@@ -2,14 +2,15 @@
 <html lang="en">
     {% include "core/partials/head.html" %}
     <body class="home-target view-home">
-            {% include "core/partials/body-constants.html" %}
-            <div class="container">
-                {% include "core/partials/container-constants.html" %}
-            </div>
+        {% include "core/partials/body-constants.html" %}
+        <div class="container">
+            {% include "core/partials/container-constants.html" %}
+        </div>
     </body>
     <script>
         $('#fullwidth-video').hide();
         $('#gallery-target').fadeIn();
+        GI.layout = {{layout|safe}};
         GI.activePage = 'page';
         GI.pageTitle = '{{page.title}}'
         GI.isLandingPage = false;
