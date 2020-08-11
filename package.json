@@ -33,7 +33,7 @@
     "masonry-layout": "^4.2.2",
     "mustache": "^3.0.1",
     "style-loader": "^0.23.1",
-    "tinymce": "^5.0.13",
+    "tinymce": "^5.4.0",
     "webpack": "^4.36.1"
   },
   "devDependencies": {
